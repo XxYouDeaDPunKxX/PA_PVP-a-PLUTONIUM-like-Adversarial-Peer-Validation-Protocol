@@ -1,4 +1,4 @@
----
+﻿---
 title: "Guide"
 description: "How to run PA_PVP - a PLUTONIUM-like Adversarial Peer Validation Protocol (AI-native kernel, human supervision)."
 ---
@@ -7,7 +7,7 @@ description: "How to run PA_PVP - a PLUTONIUM-like Adversarial Peer Validation P
 PA_PVP is a deterministic decision protocol optimized for **movement under uncertainty**.
 It is designed as an **AI-native decision kernel** with **human supervision**.
 
-[Home](index.md)
+[Home](./)
 
 ## Two layers (do not mix them)
 PA_PVP has two ways to use it:
@@ -267,7 +267,7 @@ EXTERNAL_BLOCK escalation (policy, orchestrator-side):
 - If an item remains locked on `EXTERNAL_BLOCK` for multiple iterations, the orchestrator should force a proxy redesign or an evidence acquisition step (and only then consider AskUser, if enabled).
 
 ## Human workflow modes (supervision)
-These are “how you run the loop”, not protocol states:
+These are â€œhow you run the loopâ€, not protocol states:
 
 ### Single-host
 One reviewer/agent. Best for speed and discipline.
@@ -331,7 +331,7 @@ If you need tamper-evidence (legal/audit), compute and store a hash/signature of
 Do not add signatures inside `[PANEL]`/`[QUEUE]` unless you also define a strict canonicalization rule.
 
 ### Red-team (optional)
-One reviewer’s explicit goal is to break the plan: find failure modes and abuse cases.
+One reviewerâ€™s explicit goal is to break the plan: find failure modes and abuse cases.
 
 ## Rating rubric (LOW / MED / HIGH)
 Treat labels as triage, not fake precision:
@@ -343,8 +343,8 @@ Rule of thumb:
 - if you cannot estimate -> default `MED` and declare what evidence would reduce uncertainty.
 
 ## Common failure modes (anti-patterns)
-- Output says “it depends” instead of forcing a verdict.
-- Steps are vague (“improve”, “optimize”, “refactor”) without falsifiable action.
+- Output says â€œit dependsâ€ instead of forcing a verdict.
+- Steps are vague (â€œimproveâ€, â€œoptimizeâ€, â€œrefactorâ€) without falsifiable action.
 - Alternative is invented without showing it is clearly superior.
 - Step ordering is arbitrary (not cost/benefit or information ROI).
 

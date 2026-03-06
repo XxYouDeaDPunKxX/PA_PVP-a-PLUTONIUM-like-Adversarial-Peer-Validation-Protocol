@@ -1,4 +1,4 @@
----
+﻿---
 title: "Examples"
 description: "PA_PVP examples pack used as an equivalence probe for protocol changes."
 ---
@@ -8,7 +8,7 @@ description: "PA_PVP examples pack used as an equivalence probe for protocol cha
 These examples are designed to validate that PA_PVP remains executable, batch-safe, and stable across revisions.
 They are also intended as "equivalence probes" when proposing changes to the protocol.
 
-[Home](index.md)
+[Home](./)
 
 ## How to Use
 

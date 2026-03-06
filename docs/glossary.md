@@ -1,4 +1,4 @@
----
+﻿---
 title: "Glossary"
 description: "Closed vocabulary to reduce semantic drift across AI-to-AI iterations."
 ---
@@ -8,7 +8,7 @@ description: "Closed vocabulary to reduce semantic drift across AI-to-AI iterati
 This glossary exists to reduce semantic drift across AI<->AI iterations.
 Prefer these exact terms and avoid synonyms.
 
-[Home](index.md)
+[Home](./)
 
 ## Core Outputs
 
