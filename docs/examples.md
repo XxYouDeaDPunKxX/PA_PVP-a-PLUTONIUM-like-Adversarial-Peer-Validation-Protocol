@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Examples"
 description: "PA_PVP examples pack used as an equivalence probe for protocol changes."
 ---
@@ -156,7 +156,7 @@ Input:
 ```
 
 Invariants:
-- The batch detects the cycle deterministically (no waiting).
+- The batch detects the cycle by fixed rule (no waiting).
 - Both items are parked (`new_state=STANDBY`, verdict `DO LATER`).
 - Both items use `trigger=CIRCULAR_DEPENDENCY` and `gate=REDESIGN_TRIGGER`.
 - The earliest non-conflicting step for each item must break the cycle (split/refactor ids, remove/replace an edge, waive one edge with debt, or discard a dominated item).
@@ -267,7 +267,7 @@ Input (batch, second turn):
 ```
 
 Invariants:
-- Step 1 follows the deterministic priority order: mitigation/compensation comes before dependency resolution.
+- Step 1 follows the fixed priority order: mitigation/compensation comes before dependency resolution.
 - The dependency requirement is not dropped: an earliest non-conflicting later step must resolve/waive `E7C_A` before any dependent execution.
 
 ## Example 7b: Irreversible items cannot SIM-close
@@ -284,7 +284,7 @@ Input:
 
 Invariants:
 - Item must not end `CLOSED` with `ct:SIM`.
-- If it would close without real evidence, it should park with `CLOSE_BLOCKED_REAL_ONLY` (or equivalent deterministic block).
+- If it would close without real evidence, it should park with `CLOSE_BLOCKED_REAL_ONLY` (or equivalent protocol-consistent block).
 
 ## Example 8: Operational pressure (CUT MODE + split on multi critical driver)
 
@@ -386,7 +386,7 @@ why: Prior peer overclaimed HIGH confidence on weak evidence.
 critical_driver: confidence_manipulability
 dominant_tradeoff: expressivity vs objectivity
 falsification_debt: NONE
-next_uncertainty: whether caps apply deterministically
+next_uncertainty: whether caps apply by fixed rule
 trigger: PROBE_ITERATION
 [DERIVED]
 derived_version: v9.7.1
@@ -499,7 +499,7 @@ Input:
 <<<I id=E13 title="Peer convergence compare" expire_days=60>>>
 <<<PLAN>>>
 - Run the same input twice (two independent reviewers/hosts)
-- Compare the two outputs deterministically (consumer-level)
+- Compare the two outputs by fixed rules (consumer-level)
 <<<END>>>
 ```
 

@@ -1,10 +1,10 @@
-﻿---
+---
 title: "Guide"
 description: "How to run PA_PVP - a PLUTONIUM-like Adversarial Peer Validation Protocol (AI-native kernel, human supervision)."
 ---
 
 # PA_PVP - a PLUTONIUM-like Adversarial Peer Validation Protocol (Guide)
-PA_PVP is a deterministic decision protocol optimized for **movement under uncertainty**.
+PA_PVP is a rule-ordered decision protocol optimized for **movement under uncertainty**.
 It is designed as an **AI-native decision kernel** with **human supervision**.
 
 [Home](./)
@@ -14,13 +14,13 @@ PA_PVP has two ways to use it:
 
 1) **Kernel (protocol)**
    - File: [PA_PVP_full_v9.7_canonical.txt](https://github.com/XxYouDeaDPunKxX/PA-PVP/blob/main/PA_PVP_full_v9.7_canonical.txt)
-   - Use this when you want a deterministic, stateful, batch-safe AI-to-AI protocol.
+   - Use this when you want a rule-ordered, stateful, batch-safe AI-to-AI protocol.
 
 2) **Quickstart (copy/paste template)**
    - File: [QUICKSTART.md](https://github.com/XxYouDeaDPunKxX/PA-PVP/blob/main/QUICKSTART.md)
    - Use this when you want the simplest copy/paste workflow to run the kernel.
 
-We call it the "kernel" because of its internal structure: this choice is intentional to reduce drift and noise: one deterministic SSOT core enforces invariants and produces the state transition, while everything else (Quickstart, REPORT, orchestration policy) stays a consumer layer that must not change SSOT semantics.
+We call it the "kernel" because of its internal structure: this choice is intentional to reduce drift and noise: one rule-ordered SSOT core enforces invariants and produces the state transition, while everything else (Quickstart, REPORT, orchestration policy) stays a consumer layer that must not change SSOT semantics.
 
 ## What the kernel returns (always)
 Each run returns:
@@ -35,7 +35,7 @@ The `[QUEUE]` and `[HUMAN_TABLE]` lines include a `gate:` token (dominant gate) 
 If it cannot produce an executable next action, the item is invalid (or must be discarded/parked).
 
 ## Orchestrator policy (optional, external)
-Keep the kernel guardrails hard and deterministic. If you have an orchestrator/runner that chooses what to execute next across items, use this simple rule:
+Keep the kernel guardrails hard and rule-ordered. If you have an orchestrator/runner that chooses what to execute next across items, use this simple rule:
 - Among actions allowed by gates and Step 1 priority, choose the next action that maximizes information ROI relative to Cost of Delay (cheap-first when possible).
 
 ## REPORT / REPORT LITE (human render, no-look, derived-only)
@@ -96,7 +96,7 @@ This answers: **"Which drivers are fragile across the batch right now?"**
 PA_PVP supports an output-only scaling flag (no SSOT semantics change):
 - batch: `<<<B ... ssot_scale=MIN|DEBUG>>>` (default `MIN`)
 
-Behavior (deterministic):
+Behavior (rule-ordered):
 - `MIN`: prints only the operational console for non-`<<<PREV>>>` items (panel/queue + `ITEM_PANEL`/`DERIVED`/`STEPS`/`NEXT` and probe logs if present).
 - `DEBUG`: prints the full item structure.
 - In `MIN`, any item with `contested=YES` or `dominant_gate != NONE` MUST be emitted in `DEBUG` (auto-escalation).
@@ -170,7 +170,7 @@ In that case the step output token (after `->`) MUST be one of:
 - `EXCEPTION_INVARIANT`
 - `EXCEPTION_DEPENDENCY`
 
-The kernel maps these deterministically to existing blockers (no new tags):
+The kernel maps these by fixed rules to existing blockers (no new tags):
 - IO / TIMEOUT / AUTH -> `BLOCKED_EXTERNAL` (gate `EXTERNAL_BLOCK`)
 - DEPENDENCY -> `DEPENDENCY_BLOCK`
 - INVARIANT -> `REDESIGN_TRIGGER`
@@ -178,12 +178,12 @@ The kernel maps these deterministically to existing blockers (no new tags):
 ## Batch debug line (TopGates)
 The `[USER_PANEL]` includes a `TopGates:` line showing up to 5 highest-impact gate causes across the batch (derived from `gate:` tokens only).
 
-## Concurrency (optional, deterministic)
+## Concurrency (optional, rule-ordered)
 You can model resource contention across items with two optional fields:
 - batch: `resource_pool=R1:1,R2:2`
 - item: `uses=R1:1,R2:1`
 
-If multiple `DO NOW` items exceed capacity, the kernel deterministically demotes lower-priority items to `DO LATER` with `trigger=DEPENDENCY_BLOCK` (no new tags).
+If multiple `DO NOW` items exceed capacity, the kernel demotes lower-priority items to `DO LATER` by fixed priority rule with `trigger=DEPENDENCY_BLOCK` (no new tags).
 
 ## Dependencies (batch, DAG-only)
 `depends_on` encodes execution-order constraints across items.
@@ -193,15 +193,15 @@ Normal dependency block (expected):
 
 Circular dependency (structural modeling error):
 - the `depends_on` graph among items present in the same batch MUST be acyclic (DAG-only).
-- if a cycle is detected (including self-dependency), each item in the cycle is parked deterministically:
+- if a cycle is detected (including self-dependency), each item in the cycle is parked by fixed rule:
   - `new_state=STANDBY`, `verdict=DO LATER`
   - `trigger=CIRCULAR_DEPENDENCY` (dominant gate maps to `REDESIGN_TRIGGER`)
   - the earliest non-conflicting step must break the cycle (split/refactor ids, remove/replace an edge, waive one edge with debt, or discard a dominated item).
   - even though the item is `STANDBY` (no execution now), the cycle-breaking step(s) must still be recorded in `[STEPS]` as the planned actions for when it is later revived.
 
-## Step 1 priority (hard, deterministic)
+## Step 1 priority (hard, fixed-order)
 Multiple rules can require a specific "Step 1 MUST ..." action in the same run (reopen mitigation, cycle redesign, probes, dependency blocks, conservation redesign).
-To prevent contradictions, the kernel uses a deterministic priority order for what Step 1 must be:
+To prevent contradictions, the kernel uses a fixed priority order for what Step 1 must be:
 
 1) Reopen mitigation (previously `CLOSED` with `ct:REAL` and reopened)
 2) Circular dependency break (`trigger=CIRCULAR_DEPENDENCY`)
@@ -238,7 +238,7 @@ Inside `[DERIVED]` the kernel can expose counters:
 - `derived_version`: derivation ruleset id used to compute derived fields (audit compatibility)
 - `pc`: probe cycles completed (distinct probe_id reaching VALIDATED/FALSIFIED/EXPIRED)
 - `nm`: near-miss count (distinct probe_id marked `PASS_NARROW`)
-- `nmd`: deterministic near-miss count (same as `nm`, but only for Deterministic domain)
+- `nmd`: near-miss count in the Deterministic domain (same as `nm`, but only for Deterministic domain)
 
 Repeated near-misses under weak evidence can trigger `REDESIGN_TRIGGER` (probe harness redesign) without introducing new tags.
 In Deterministic domains, any `nmd>=1` must be treated as a learning signal: confidence is capped to `MED` and the plan must include a mitigation step (second independent check or threshold redesign).
@@ -267,7 +267,7 @@ EXTERNAL_BLOCK escalation (policy, orchestrator-side):
 - If an item remains locked on `EXTERNAL_BLOCK` for multiple iterations, the orchestrator should force a proxy redesign or an evidence acquisition step (and only then consider AskUser, if enabled).
 
 ## Human workflow modes (supervision)
-These are â€œhow you run the loopâ€, not protocol states:
+These are "how you run the loop", not protocol states:
 
 ### Single-host
 One reviewer/agent. Best for speed and discipline.
@@ -279,12 +279,12 @@ Two independent reviewers run the same input.
 
 <a id="peer-convergence-a-b-consumer-level"></a>
 #### Peer convergence (A/B, consumer-level)
-In multi-host mode, you can compare two independent PA_PVP outputs deterministically **without changing the kernel**.
+In multi-host mode, you can compare two independent PA_PVP outputs by fixed rules **without changing the kernel**.
 This is a consumer/renderer layer that reads the two snapshots and produces a convergence decision.
 
 Two parts:
-- **B (required): deterministic compare rules**
-- **A (optional): deterministic convergence report** (a derived table printed *outside* the code block)
+- **B (required): fixed compare rules**
+- **A (optional): fixed-rule convergence report** (a derived table printed *outside* the code block)
 
 **B) Deterministic compare rules**
 For each item id present in either output, extract:
@@ -323,7 +323,7 @@ If you want a scan-friendly UI, render a derived block after both code blocks:
 This report is not SSOT and must be ignored by SNAPSHOT-AS-INPUT.
 
 N-host consensus (optional, external):
-- You can generalize the same deterministic compare to N independent outputs by computing per-item agreement metrics and selecting the next action via a fixed rule (e.g., majority verdict + shared token with lowest rank-sum).
+- You can generalize the same fixed-rule compare to N independent outputs by computing per-item agreement metrics and selecting the next action via a fixed rule (e.g., majority verdict + shared token with lowest rank-sum).
 - Keep this logic outside the kernel so the SSOT remains stable.
 
 ### Snapshot integrity (optional, external)
@@ -331,7 +331,7 @@ If you need tamper-evidence (legal/audit), compute and store a hash/signature of
 Do not add signatures inside `[PANEL]`/`[QUEUE]` unless you also define a strict canonicalization rule.
 
 ### Red-team (optional)
-One reviewerâ€™s explicit goal is to break the plan: find failure modes and abuse cases.
+One reviewer's explicit goal is to break the plan: find failure modes and abuse cases.
 
 ## Rating rubric (LOW / MED / HIGH)
 Treat labels as triage, not fake precision:
@@ -343,8 +343,8 @@ Rule of thumb:
 - if you cannot estimate -> default `MED` and declare what evidence would reduce uncertainty.
 
 ## Common failure modes (anti-patterns)
-- Output says â€œit dependsâ€ instead of forcing a verdict.
-- Steps are vague (â€œimproveâ€, â€œoptimizeâ€, â€œrefactorâ€) without falsifiable action.
+- Output says "it depends" instead of forcing a verdict.
+- Steps are vague ("improve", "optimize", "refactor") without falsifiable action.
 - Alternative is invented without showing it is clearly superior.
 - Step ordering is arbitrary (not cost/benefit or information ROI).
 

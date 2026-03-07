@@ -52,7 +52,7 @@ You are the sensor that connects the runtime to the world.
 
 ## Auto-learning (mechanical, not narrative)
 
-PA_PVP is designed to learn deterministically across iterations:
+PA_PVP is designed to learn through rule-ordered iterations:
 - probes are adversarial-by-construction (try to falsify the critical driver)
 - near-miss loops trigger redesign (no infinite "almost passed")
 - spent cycles are tracked (`pc/nm/inc`) so the system knows when simulation is exhausted
@@ -78,6 +78,12 @@ It becomes a constraint.
 <<<END>>>
 ```
 
+A successful first run gives you:
+- one kernel decision code block
+- a forced verdict in `[QUEUE]`
+- one `[NEXT]` action (or none if terminal)
+- a derived `[HUMAN_TABLE]` after the code block
+
 Docs and templates:
 - Guide: [docs/guide.md](docs/guide.md)
 - Glossary (closed vocabulary): [docs/glossary.md](docs/glossary.md)
@@ -87,18 +93,18 @@ Docs and templates:
 ---
 
 <details>
-<summary><strong>Technical contract (SSOT-grade, deterministic)</strong></summary>
+<summary><strong>Technical contract (SSOT-grade, rule-ordered)</strong></summary>
 
 ### What it returns (invariants)
 Every valid run produces:
 - a forced verdict: `DO NOW` / `DO LATER` / `DISCARD`
-- deterministic machine state (batch-safe)
+- a rule-ordered machine state (batch-safe)
 - one executable `[NEXT]` action (or none if terminal)
 - max five atomic steps
 
 No discussions. No "it depends" as output.
 
-We call it the “kernel” because of its internal structure. This is an intentional choice to reduce drift and noise: a deterministic SSOT core enforces invariants and drives state transitions, while everything else (Quickstart, REPORT, orchestration policy) remains a consumer layer and must not alter SSOT semantics.
+We call it the "kernel" because of its internal structure. This is an intentional choice to reduce drift and noise: a rule-ordered SSOT core enforces invariants and drives state transitions, while everything else (Quickstart, REPORT, orchestration policy) remains a consumer layer and must not alter SSOT semantics.
 
 ### Output structure (stable)
 - Kernel decision runs: exactly ONE code block.

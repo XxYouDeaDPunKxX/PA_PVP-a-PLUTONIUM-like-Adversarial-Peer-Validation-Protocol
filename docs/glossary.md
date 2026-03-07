@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Glossary"
 description: "Closed vocabulary to reduce semantic drift across AI-to-AI iterations."
 ---
@@ -28,7 +28,7 @@ Prefer these exact terms and avoid synonyms.
 - `derived_version`: derivation ruleset id used to compute derived fields (audit compatibility)
 
 ## Trigger Tags (Item Panel)
-`trigger` is the primary deterministic rule tag that caused the item transition.
+`trigger` is the primary rule tag that caused the item transition.
 It is a closed vocabulary, but it is intentionally not duplicated in full here (see the canonical kernel for the complete list).
 
 Common trigger tags you will see in practice:
@@ -135,7 +135,7 @@ AskUser output (panel-level, single question max):
 
 ## Steps (Execution Logging)
 
-Step 1 priority (hard, deterministic):
+Step 1 priority (hard, fixed-order):
 - If multiple rules require a specific "Step 1 MUST ..." action (reopen mitigation, cycle redesign, probes, dependency blocks, conservation redesign), the kernel selects Step 1 by a fixed priority order.
 - Lower-priority requirements that remain relevant must appear as the earliest non-conflicting later step (not dropped).
 
@@ -148,7 +148,7 @@ Cheap-First Probe note:
 Step status markers (inline on step lines):
 - `status=COMPLETED`: step executed in this run and produced an output
 - `status=COMPLETED_SIMULATED`: step completed using simulated/derived outcome (required in `exec_capability=NO_RUNTIME` runs)
-- `status=FAILED`: step executed but hit `fail_if` (must trigger the relevant gate deterministically)
+- `status=FAILED`: step executed but hit `fail_if` (must trigger the relevant gate by fixed rule)
 - `status=FAILED_EXCEPTION`: step failed due to runtime exception in `exec_capability=RUNTIME_OK` runs (must use `EXCEPTION_*` output token)
 
 Runtime exception output tokens (closed vocabulary, RUNTIME_OK only):
