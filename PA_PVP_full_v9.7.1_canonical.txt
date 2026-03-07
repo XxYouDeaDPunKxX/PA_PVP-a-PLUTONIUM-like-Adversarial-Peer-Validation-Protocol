@@ -1,6 +1,6 @@
 PA_PVP - A PLUTONIUM-LIKE ADVERSARIAL PEER VALIDATION PROTOCOL (CANONICAL v9.7.1)
 
-FILENAME: PA_PVP_full_v9.7_canonical.txt
+FILENAME: PA_PVP_full_v9.7.1_canonical.txt
 LICENSE: CC BY-SA 4.0
 
 NOTE: Governance-only bridge document (not part of the execution contract).

@@ -17,7 +17,7 @@ It assumes you care about how PA_PVP works, not just how to run the first batch.
 PA_PVP has two ways to use it:
 
 1) **Kernel (protocol)**
-   - File: [PA_PVP_full_v9.7_canonical.txt](https://github.com/XxYouDeaDPunKxX/PA-PVP/blob/main/PA_PVP_full_v9.7_canonical.txt)
+   - File: [PA_PVP_full_v9.7.1_canonical.txt](https://github.com/XxYouDeaDPunKxX/PA-PVP/blob/main/PA_PVP_full_v9.7.1_canonical.txt)
    - Use this when you want a rule-ordered, stateful, batch-safe AI-to-AI protocol.
 
 2) **Quickstart (copy/paste template)**

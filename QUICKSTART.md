@@ -1,7 +1,7 @@
 # PA_PVP Quickstart (copy/paste, no-look)
 
 SSOT (canonical kernel):
-- [`PA_PVP_full_v9.7_canonical.txt`](PA_PVP_full_v9.7_canonical.txt)
+- [`PA_PVP_full_v9.7.1_canonical.txt`](PA_PVP_full_v9.7.1_canonical.txt)
 
 This quickstart is a human wrapper. The kernel SSOT is always the canonical file above.
 

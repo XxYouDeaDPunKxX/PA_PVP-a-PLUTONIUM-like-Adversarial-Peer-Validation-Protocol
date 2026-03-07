@@ -1,4 +1,4 @@
-﻿# PA_PVP - a PLUTONIUM-like Adversarial Peer Validation Protocol
+# PA_PVP - a PLUTONIUM-like Adversarial Peer Validation Protocol
 
 ![PA_PVP Banner](docs/banner.png)
 
@@ -63,7 +63,7 @@ It becomes a constraint.
 
 ## Quickstart (copy/paste)
 
-1) Load the canonical kernel: [PA_PVP_full_v9.7_canonical.txt](PA_PVP_full_v9.7_canonical.txt)
+1) Load the canonical kernel: [PA_PVP_full_v9.7.1_canonical.txt](PA_PVP_full_v9.7.1_canonical.txt)
 2) Paste a batch with wrappers, run it, then paste the full output back (snapshot-as-input is supported).
 
 ```text
