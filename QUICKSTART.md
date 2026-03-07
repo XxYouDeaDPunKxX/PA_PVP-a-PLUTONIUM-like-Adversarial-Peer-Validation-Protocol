@@ -16,6 +16,20 @@ This quickstart is a human wrapper. The kernel SSOT is always the canonical file
 <<<END>>>
 ```
 
+What successful first output looks like:
+
+```text
+STATE: DECISION.TEST.FINAL
+[USER_PANEL]
+...
+[QUEUE]
+- E1 | verdict: DO NOW / DO LATER / DISCARD | ...
+[NEXT]
+S1: <one executable or planned next action>
+```
+
+Outside the code block, you should also see a derived `[HUMAN_TABLE]` for human scanning.
+
 Notes:
 - Use `ask_user=NONE` for simulation-first runs.
 - Enable `ask_user=ALLOW` only when you truly need real-world evidence.
@@ -58,6 +72,8 @@ Hard rules:
 
 ## Next steps
 
+- Use the Guide if you want the operating model and execution rules.
+- Use the Glossary if you only need field meanings and token definitions.
 - Guide: [`docs/guide.md`](docs/guide.md)
 - Glossary: [`docs/glossary.md`](docs/glossary.md)
 - Examples pack: [`docs/examples.md`](docs/examples.md)

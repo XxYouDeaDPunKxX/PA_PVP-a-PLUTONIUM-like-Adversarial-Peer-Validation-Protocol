@@ -16,7 +16,7 @@ They are also intended as "equivalence probes" when proposing changes to the pro
 2) Verify the invariants listed under it (do not overfit to exact wording).
 3) For protocol changes: run the same examples before/after and confirm invariants still hold.
 
-## Example 1: Trivial PLAN (DIY, compress)
+## Example 1 [starter]: Trivial PLAN (DIY, compress)
 
 Input:
 ```text
@@ -34,7 +34,7 @@ Invariants:
 - Includes `[PANEL]` and `[QUEUE]` with `ds:`, `term:`, `ct:`, `gate:`, and `exp:` shown.
 - Output includes a derived-only `[HUMAN_TABLE]` markdown table after the code block.
 
-## Example R1: REPORT LITE (consumer-layer, derived-only)
+## Example R1 [starter]: REPORT LITE (consumer-layer, derived-only)
 
 This is NOT a kernel run. It is a human rendering pass that reads a snapshot.
 
@@ -50,7 +50,7 @@ Invariants:
 - Report is derived-only: it must not change any verdict/gate/trigger/steps; it must not invent facts.
 - If a value is not present in the snapshot, it must say `missing in snapshot`.
 
-## Example R2: REPORT (FULL, consumer-layer, derived-only)
+## Example R2 [intermediate]: REPORT (FULL, consumer-layer, derived-only)
 
 Input:
 ```text
@@ -63,7 +63,7 @@ Invariants:
 - Any percentages are mechanical utilization (timebox/complexity/completion) and are printed only if derivable; otherwise `missing in snapshot`.
 - Output contains no code blocks.
 
-## Example 2: Complex PLAN triggers PROBING (simulation-first)
+## Example 2 [stress case]: Complex PLAN triggers PROBING (simulation-first)
 
 Input:
 ```text
@@ -86,7 +86,7 @@ Invariants:
 - If the first N probes are run (N=3 default), output includes a [PROBE_LOG] with required fields.
 - `[STEPS]` obeys v9.2 grammar: each step has `-> <OUTPUT>`, `timebox<=...m`, and `fail_if=...` (no meta verbs unless rewritten as a measurable probe).
 
-## Example 3: ARTIFACT audit (no "need a plan")
+## Example 3 [starter]: ARTIFACT audit (no "need a plan")
 
 Input:
 ```text
@@ -101,7 +101,7 @@ Invariants:
 - Includes `[ARTIFACT_AUDIT]` with the 3 checks: completeness/coherence/operationality.
 - Includes `[AUDIT_EXACT]` with exactly: defect / patch / step.
 
-## Example 4: TOOL + TARGET (must not invert)
+## Example 4 [intermediate]: TOOL + TARGET (must not invert)
 
 Input:
 ```text
@@ -117,7 +117,7 @@ Invariants:
 - Mode is TARGET analysis and roles are not inverted.
 - Output is in PA_PVP format (not a generic essay).
 
-## Example 5: Dependencies in batch
+## Example 5 [intermediate]: Dependencies in batch
 
 Input:
 ```text
@@ -138,7 +138,7 @@ Invariants:
 - `[QUEUE]` shows `exp:` for both.
 - For E5B, Step 1 resolves dependency or explicitly waives it.
 
-## Example 5c: Circular dependencies (DAG-only)
+## Example 5c [stress case]: Circular dependencies (DAG-only)
 
 Input:
 ```text
@@ -162,7 +162,7 @@ Invariants:
 - The earliest non-conflicting step for each item must break the cycle (split/refactor ids, remove/replace an edge, waive one edge with debt, or discard a dominated item).
 - Because the items are `STANDBY`, `[NEXT]` may be omitted; if present, it is a "next planned action on revive" (must not be interpreted as execute-now).
 
-## Example 5d: PROBING blocked by unresolved dependency (probe must be dependency-independent)
+## Example 5d [stress case]: PROBING blocked by unresolved dependency (probe must be dependency-independent)
 
 Input:
 ```text
@@ -183,7 +183,7 @@ Invariants:
 - If `E5D_A` is not `CLOSED/DISCARDED`, `E5D` must not enter `PROBING` if the only viable probe requires executing blocked dependent steps.
 - `E5D` is parked with `trigger=DEPENDENCY_BLOCK` (gate `DEPENDENCY_BLOCK`) and Step 1 follows dependency resolution/waiver.
 
-## Example 5b: Resource concurrency (no new tags)
+## Example 5b [intermediate]: Resource concurrency (no new tags)
 
 Input:
 ```text
@@ -204,7 +204,7 @@ Invariants:
 - If both items would be `DO NOW`, the kernel must demote one to `DO LATER` due to capacity.
 - The demoted item uses `trigger=DEPENDENCY_BLOCK` (no new tags).
 
-## Example 6: Delta-only ping-pong + contestation
+## Example 6 [intermediate]: Delta-only ping-pong + contestation
 
 Input (second turn):
 ```text
@@ -224,7 +224,7 @@ Invariants:
 - If `contested=YES` in PREV, BREAK addresses the contested point explicitly.
 - DELTA includes at least one explicit causal reference (driver/relationship/probe_id/evidence).
 
-## Example 7: Revisit CLOSED requires NEW_EVIDENCE
+## Example 7 [intermediate]: Revisit CLOSED requires NEW_EVIDENCE
 
 Input:
 ```text
@@ -245,7 +245,7 @@ Invariants:
 - With `<<<NEW_EVIDENCE>>>`, evidence tier is reflected in binding and `ct:REAL` is allowed.
 - If PREV was `CLOSED` with `ct:REAL` and the item is reopened, Step 1 must be a mitigation/compensation step.
 
-## Example 7c: Step 1 priority (reopen mitigation > dependency)
+## Example 7c [stress case]: Step 1 priority (reopen mitigation > dependency)
 
 Input (batch, second turn):
 ```text
@@ -270,7 +270,7 @@ Invariants:
 - Step 1 follows the fixed priority order: mitigation/compensation comes before dependency resolution.
 - The dependency requirement is not dropped: an earliest non-conflicting later step must resolve/waive `E7C_A` before any dependent execution.
 
-## Example 7b: Irreversible items cannot SIM-close
+## Example 7b [intermediate]: Irreversible items cannot SIM-close
 
 Input:
 ```text
@@ -286,7 +286,7 @@ Invariants:
 - Item must not end `CLOSED` with `ct:SIM`.
 - If it would close without real evidence, it should park with `CLOSE_BLOCKED_REAL_ONLY` (or equivalent protocol-consistent block).
 
-## Example 8: Operational pressure (CUT MODE + split on multi critical driver)
+## Example 8 [stress case]: Operational pressure (CUT MODE + split on multi critical driver)
 
 Input (batch):
 ```text
@@ -339,7 +339,7 @@ Invariants:
 - `[QUEUE]` includes the newly created items (first-class batch items).
 - The newly produced items include steps that obey the executable grammar (OUTPUT + timebox + fail_if).
 
-## Example 9: Snapshot-as-input (no-look paste full output)
+## Example 9 [starter]: Snapshot-as-input (no-look paste full output)
 
 Input:
 ```text
@@ -355,7 +355,7 @@ Invariants:
 - To enable external-data questions: set `ask_user=ALLOW` in `<<<B ...>>>` (or per-item override).
 - If the pasted prior output includes extra text after the code block (e.g., `[HUMAN_TABLE]`, `[HUMAN_TABLE_OPS]`, footer lines), SNAPSHOT-AS-INPUT MUST ignore it.
 
-## Example 10: Derived confidence caps (overclaim blocked)
+## Example 10 [intermediate]: Derived confidence caps (overclaim blocked)
 
 Input (second turn, with PREV):
 ```text
@@ -410,7 +410,7 @@ Invariants:
 - `critical_driver_confidence` MUST be <= `MED` after cap application.
 - Output includes a causal note / trigger indicating the cap was applied (e.g., `CONFIDENCE_CAP_APPLIED`).
 
-## Example 11: Dependency waiver + debt (explicit)
+## Example 11 [stress case]: Dependency waiver + debt (explicit)
 
 Input (batch):
 ```text
@@ -435,7 +435,7 @@ Invariants:
 - If no higher-priority Step 1 applies, the waiver action should be Step 1 and the waiver-required probe/acquisition should appear at the earliest non-conflicting later step.
 - With `falsification_debt=OPEN(...)` under weak evidence (`SIMULATED/DERIVED`), complexity tax should be harsher (debt contributes `+1` to `complexity_score`), making redesign/splitting more likely if the plan is already near budget.
 
-## Example 12: Context-match stall exit (2x UNKNOWN/NO => redesign A/B/C)
+## Example 12 [stress case]: Context-match stall exit (2x UNKNOWN/NO => redesign A/B/C)
 
 Input (second turn, with PREV):
 ```text
@@ -492,7 +492,7 @@ Invariants:
 - Two consecutive `INCONCLUSIVE` with `context_match in {UNKNOWN,NO}` triggers `PROBE_STALL_CONTEXT_MATCH`.
 - Output MUST choose exactly one redesign path A/B/C (probe redesign, split, or STANDBY/DISCARD) with no questions.
 
-## Example 13: Peer convergence (A/B, consumer-level)
+## Example 13 [intermediate]: Peer convergence (A/B, consumer-level)
 
 Input:
 ```text
@@ -511,7 +511,7 @@ Invariants:
   - gate agreement (`gate:` token)
   - overlap on the first 3 step tokens + `[NEXT]` token (see [`docs/guide.md`](guide.md)).
 
-## Example 14: RISK_DASHBOARD (derived-only, batch hotspots)
+## Example 14 [intermediate]: RISK_DASHBOARD (derived-only, batch hotspots)
 
 Input (batch):
 ```text
@@ -533,7 +533,7 @@ Invariants:
 - SNAPSHOT-AS-INPUT MUST ignore `[RISK_DASHBOARD]` (it must not affect parsing).
 - The dashboard MUST be derived only from `[QUEUE]` + `[ITEM_PANEL]` short fields (no new semantics).
 
-## Example 15: Runtime exceptions (RUNTIME_OK, closed vocabulary)
+## Example 15 [intermediate]: Runtime exceptions (RUNTIME_OK, closed vocabulary)
 
 Input (batch):
 ```text

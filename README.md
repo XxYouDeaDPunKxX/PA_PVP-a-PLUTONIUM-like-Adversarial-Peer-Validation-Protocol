@@ -1,4 +1,4 @@
-# PA_PVP - a PLUTONIUM-like Adversarial Peer Validation Protocol
+﻿# PA_PVP - a PLUTONIUM-like Adversarial Peer Validation Protocol
 
 ![PA_PVP Banner](docs/banner.png)
 
@@ -20,7 +20,7 @@ Run the loop.
 
 ## Decisions that converge
 
-You don't make a perfect choice once.
+You do not make a perfect choice once.
 You run a system that:
 - keeps what survives reality
 - discards what doesn't
@@ -28,9 +28,6 @@ You run a system that:
 
 Every iteration must reduce uncertainty or change the state of the world.
 If it doesn't, it's invalid.
-
-Work stops being a list.
-It becomes a trajectory with memory.
 
 ---
 
@@ -84,6 +81,20 @@ A successful first run gives you:
 - one `[NEXT]` action (or none if terminal)
 - a derived `[HUMAN_TABLE]` after the code block
 
+Typical first output shape:
+
+```text
+[QUEUE]
+DO NOW | gate: ...
+
+[NEXT]
+<one executable next step>
+```
+
+Use the canonical file if you want the full machine surface.
+Use [QUICKSTART.md](QUICKSTART.md) if you want the shortest operator path.
+Use the docs below if you want semantics, vocabulary, and worked examples.
+
 Docs and templates:
 - Guide: [docs/guide.md](docs/guide.md)
 - Glossary (closed vocabulary): [docs/glossary.md](docs/glossary.md)
@@ -104,7 +115,7 @@ Every valid run produces:
 
 No discussions. No "it depends" as output.
 
-We call it the "kernel" because of its internal structure. This is an intentional choice to reduce drift and noise: a rule-ordered SSOT core enforces invariants and drives state transitions, while everything else (Quickstart, REPORT, orchestration policy) remains a consumer layer and must not alter SSOT semantics.
+The canonical kernel is the authority surface. The README is the public entrypoint. We call it the "kernel" because of its internal structure: a rule-ordered SSOT core enforces invariants and drives state transitions, while everything else (Quickstart, REPORT, orchestration policy) remains a consumer layer and must not alter SSOT semantics.
 
 ### Output structure (stable)
 - Kernel decision runs: exactly ONE code block.

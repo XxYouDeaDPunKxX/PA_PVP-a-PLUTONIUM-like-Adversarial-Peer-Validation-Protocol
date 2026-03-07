@@ -9,6 +9,10 @@ It is designed as an **AI-native decision kernel** with **human supervision**.
 
 [Home](./)
 
+If you want the fastest copy/paste path, start with [QUICKSTART.md](https://github.com/XxYouDeaDPunKxX/PA-PVP/blob/main/QUICKSTART.md).
+Read this guide when you want the operating model, the state transitions, and the reasoning behind the protocol mechanics.
+It assumes you care about how PA_PVP works, not just how to run the first batch.
+
 ## Two layers (do not mix them)
 PA_PVP has two ways to use it:
 
@@ -66,7 +70,7 @@ Hard rules:
   - `state`, `verdict`, `gate`, `trigger`, `closure_tier`, `best_evidence_tier`, `falsification_debt`
   - steps list (S1..S5) with statuses when present
   - `[NEXT]` semantics: executable for `ACTIVE/PROBING`; planned-only if `STANDBY`
-- Deterministic metrics (only if derivable from snapshot):
+- Fixed metrics (only if derivable from snapshot):
   - `timebox_utilization_pct = 100 * tb_total / tb_budget` (prefer `counters tb=.../...`; else sum `timebox<=Nm`)
   - `complexity_utilization_pct = 100 * cx_score / cx_budget` (prefer `counters cx=.../...`; else use complexity tax formula)
   - `step_completion_pct = 100 * completed_steps / steps_count` (from `status=COMPLETED*` markers)
@@ -286,7 +290,7 @@ Two parts:
 - **B (required): fixed compare rules**
 - **A (optional): fixed-rule convergence report** (a derived table printed *outside* the code block)
 
-**B) Deterministic compare rules**
+**B) Fixed compare rules**
 For each item id present in either output, extract:
 - `verdict`: from `[QUEUE]` (fallback to `[ITEM_PANEL]` if missing)
 - `gate`: from `[QUEUE]` `gate:` (dominant gate token)
@@ -297,18 +301,18 @@ Step output token extraction (language-agnostic):
 - for each `S#:` line in `[STEPS]`, take the substring after `->` up to the next `|` (or end), trim whitespace
 - keep the first **3** step tokens + the `[NEXT]` token (if present)
 
-Deterministic metrics (per item):
+Fixed metrics (per item):
 - `VA` (verdict agreement): `1` if equal else `0`
 - `GA` (gate agreement): `1` if equal else `0`
 - `SO` (step overlap): Jaccard overlap of `tokens` sets (`intersection_size / union_size`, `0..1`)
 - `CD` (confidence distance): map `VERY_LOW/LOW/MED/HIGH` to `0/1/2/3`, then `abs(a-b)` (missing -> `3`)
 
-Deterministic classification:
+Fixed classification:
 - `CONVERGED` if `VA=1` AND `GA=1` AND `intersection_size>=1`
 - `SOFT_DIVERGENCE` if `VA=1` but not `CONVERGED`
 - `HARD_DIVERGENCE` if `VA=0`
 
-Deterministic next-action selection:
+Fixed next-action selection:
 - if `CONVERGED` and `[NEXT]` tokens match -> execute that (only if the item is not `STANDBY`)
 - else if `intersection_size>=1` -> execute the shared token with the smallest rank-sum (rank is 1..3 for steps, 0 for `[NEXT]`; ties -> lexical)
 - else:
@@ -356,14 +360,14 @@ Protocol changes should be tested with the Examples Pack:
 Run the same examples before/after and verify invariants still hold.
 
 ## GitHub Pages (optional)
-This repo includes a mini-site in `docs/` (see [index.md](index.md)).
+This repo includes a mini-site in `docs/` (see [overview.md](overview.md) for the doc landing and `index.html` for GitHub Pages).
 To publish: GitHub -> Settings -> Pages -> Source: Deploy from a branch -> Branch: `main` -> Folder: `/docs`.
 
 Modeling guidance (policy):
 - Mutual exclusion: model alternatives inside the same item (options) or use a coordinator item; avoid cross-item auto-discard fields in the kernel.
 - Knowledge transfer: when an item is falsified, promote any validated probe outcomes into `<<<NEW_EVIDENCE>>>` for related items (or create a "lessons learned" item) instead of inventing sunk-cost math in the kernel.
 
-## Determinism upgrades (optional fields)
+## Consistency upgrades (optional fields)
 For probes, you can add a canonical `constraint_signature` inside `decision_context` to make `context_match` more mechanical and less subjective across iterations.
 
 In `PROBING`, probes are adversarial-by-construction: they must include an explicit `kill_switch` and canonical `constraint_signature` (otherwise they stay `INCONCLUSIVE` and must be redesigned).
