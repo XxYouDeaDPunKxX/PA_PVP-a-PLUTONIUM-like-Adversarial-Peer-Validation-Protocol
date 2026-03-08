@@ -63,7 +63,7 @@ It becomes a constraint.
 
 ## Quickstart (copy/paste)
 
-1) Load the canonical kernel: [PA_PVP_full_v9.7.1_canonical.txt](PA_PVP_full_v9.7.1_canonical.txt)
+1) Load the canonical kernel: [PA_PVP_full_v9.8.0_canonical.txt](PA_PVP_full_v9.8.0_canonical.txt)
 2) Paste a batch with wrappers, run it, then paste the full output back (snapshot-as-input is supported).
 
 ```text
@@ -123,6 +123,7 @@ The canonical kernel is the authority surface. The README is the public entrypoi
 - After the code block:
   - mandatory `[HUMAN_TABLE]` (derived-only from `[QUEUE]`)
   - optional `[HUMAN_TABLE_OPS]` (derived-only ops console)
+- Exception: if `[PANEL]` marks the output invalid, the machine surface fail-closes to `[USER_PANEL]` + `[PANEL]` only and must not be reused as machine state.
   
 Consumer commands:
 - `REPORT` / `REPORT LITE` are derived-only human render passes and MUST NOT output any code blocks (see [`docs/guide.md`](docs/guide.md)).

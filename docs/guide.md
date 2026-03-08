@@ -17,7 +17,7 @@ It assumes you care about how PA_PVP works, not just how to run the first batch.
 PA_PVP has two ways to use it:
 
 1) **Kernel (protocol)**
-   - File: [PA_PVP_full_v9.7.1_canonical.txt](https://github.com/XxYouDeaDPunKxX/PA-PVP/blob/main/PA_PVP_full_v9.7.1_canonical.txt)
+   - File: [PA_PVP_full_v9.8.0_canonical.txt](https://github.com/XxYouDeaDPunKxX/PA-PVP/blob/main/PA_PVP_full_v9.8.0_canonical.txt)
    - Use this when you want a rule-ordered, stateful, batch-safe AI-to-AI protocol.
 
 2) **Quickstart (copy/paste template)**
@@ -35,6 +35,7 @@ Each run returns:
 For human scanning, the output also includes a derived markdown table (`[HUMAN_TABLE]`) after the code block.
 The `[QUEUE]` and `[HUMAN_TABLE]` lines include a `gate:` token (dominant gate) so you can see the primary blocker without opening item blocks.
 `[HUMAN_TABLE]` is UI-only: models must not treat it as SSOT or as machine input; analysis must rely on the single code block only.
+If `[PANEL]` marks the output invalid, the runtime fail-closes to a minimal diagnostic surface and that output must not be reused as machine state.
 
 If it cannot produce an executable next action, the item is invalid (or must be discarded/parked).
 

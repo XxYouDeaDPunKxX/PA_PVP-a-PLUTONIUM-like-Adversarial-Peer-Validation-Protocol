@@ -389,7 +389,7 @@ falsification_debt: NONE
 next_uncertainty: whether caps apply by fixed rule
 trigger: PROBE_ITERATION
 [DERIVED]
-derived_version: v9.7.1
+derived_version: v9.8.0
 item_exec_mode: SLOW
 terminal: NO
 closure_tier: -

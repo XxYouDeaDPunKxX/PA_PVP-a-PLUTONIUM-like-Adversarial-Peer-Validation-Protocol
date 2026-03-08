@@ -1,7 +1,7 @@
 # PA_PVP Quickstart (copy/paste, no-look)
 
 SSOT (canonical kernel):
-- [`PA_PVP_full_v9.7.1_canonical.txt`](PA_PVP_full_v9.7.1_canonical.txt)
+- [`PA_PVP_full_v9.8.0_canonical.txt`](PA_PVP_full_v9.8.0_canonical.txt)
 
 This quickstart is a human wrapper. The kernel SSOT is always the canonical file above.
 
@@ -43,6 +43,7 @@ Inside the single PA_PVP snapshot code block:
 
 Outside the code block:
 - `[HUMAN_TABLE]` is mandatory for human scanning, but it is UI-only and MUST NOT be used as SSOT input.
+- If `[PANEL]` contains `OutputValidity: INVALID`, treat the output as diagnostic only; do not use it as `<<<PREV>>>` or SNAPSHOT-AS-INPUT.
 
 ## 3) Ping-pong (continue, no-look)
 
