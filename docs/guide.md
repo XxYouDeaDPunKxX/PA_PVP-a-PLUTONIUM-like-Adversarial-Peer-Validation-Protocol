@@ -361,7 +361,7 @@ Protocol changes should be tested with the Examples Pack:
 Run the same examples before/after and verify invariants still hold.
 
 ## GitHub Pages (optional)
-This repo includes a mini-site authored in `docs/` (see [overview.md](overview.md) for the doc landing and `index.html` for GitHub Pages).
+This repo keeps its documentation in `docs/`, while the public landing site is published separately from the `gh-pages` branch.
 Publish from GitHub -> Settings -> Pages -> Source: Deploy from a branch -> Branch: `gh-pages` -> Folder: `/ (root)`.
 
 Modeling guidance (policy):

@@ -1,8 +1,0 @@
-title: "PA_PVP - a PLUTONIUM-like Adversarial Peer Validation Protocol"
-description: "AI-native decision protocol: forced verdict, executable steps, probes and debt under uncertainty."
-defaults:
-  - scope:
-      path: ""
-      type: "pages"
-    values:
-      layout: default
