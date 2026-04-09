@@ -361,8 +361,8 @@ Protocol changes should be tested with the Examples Pack:
 Run the same examples before/after and verify invariants still hold.
 
 ## GitHub Pages (optional)
-This repo includes a mini-site in `docs/` (see [overview.md](overview.md) for the doc landing and `index.html` for GitHub Pages).
-To publish: GitHub -> Settings -> Pages -> Source: Deploy from a branch -> Branch: `main` -> Folder: `/docs`.
+This repo includes a mini-site authored in `docs/` (see [overview.md](overview.md) for the doc landing and `index.html` for GitHub Pages).
+Publish from GitHub -> Settings -> Pages -> Source: Deploy from a branch -> Branch: `gh-pages` -> Folder: `/ (root)`.
 
 Modeling guidance (policy):
 - Mutual exclusion: model alternatives inside the same item (options) or use a coordinator item; avoid cross-item auto-discard fields in the kernel.
