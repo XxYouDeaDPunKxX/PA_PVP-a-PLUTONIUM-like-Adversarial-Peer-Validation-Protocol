@@ -9,7 +9,7 @@ Unless otherwise noted, the contents of this repository are licensed under:
 
 - **Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)**.
 
-The full legal text is included in the repo as [`LICENSE`](https://github.com/XxYouDeaDPunKxX/PA-PVP/blob/main/LICENSE).
+The full legal text is included in the repo as [`LICENSE`](https://github.com/XxYouDeaDPunKxX/PA_PVP-a-PLUTONIUM-like-Adversarial-Peer-Validation-Protocol/blob/main/LICENSE).
 
 ## What this means (practical)
 

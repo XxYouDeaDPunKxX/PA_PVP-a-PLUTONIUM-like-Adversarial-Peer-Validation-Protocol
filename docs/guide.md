@@ -9,7 +9,7 @@ It is designed as an **AI-native decision kernel** with **human supervision**.
 
 [Home](./)
 
-If you want the fastest copy/paste path, start with [QUICKSTART.md](https://github.com/XxYouDeaDPunKxX/PA-PVP/blob/main/QUICKSTART.md).
+If you want the fastest copy/paste path, start with [QUICKSTART.md](https://github.com/XxYouDeaDPunKxX/PA_PVP-a-PLUTONIUM-like-Adversarial-Peer-Validation-Protocol/blob/main/QUICKSTART.md).
 Read this guide when you want the operating model, the state transitions, and the reasoning behind the protocol mechanics.
 It assumes you care about how PA_PVP works, not just how to run the first batch.
 
@@ -17,11 +17,11 @@ It assumes you care about how PA_PVP works, not just how to run the first batch.
 PA_PVP has two ways to use it:
 
 1) **Kernel (protocol)**
-   - File: [PA_PVP_full_v9.8.0_canonical.txt](https://github.com/XxYouDeaDPunKxX/PA-PVP/blob/main/PA_PVP_full_v9.8.0_canonical.txt)
+   - File: [PA_PVP_full_v9.8.0_canonical.txt](https://github.com/XxYouDeaDPunKxX/PA_PVP-a-PLUTONIUM-like-Adversarial-Peer-Validation-Protocol/blob/main/PA_PVP_full_v9.8.0_canonical.txt)
    - Use this when you want a rule-ordered, stateful, batch-safe AI-to-AI protocol.
 
 2) **Quickstart (copy/paste template)**
-   - File: [QUICKSTART.md](https://github.com/XxYouDeaDPunKxX/PA-PVP/blob/main/QUICKSTART.md)
+   - File: [QUICKSTART.md](https://github.com/XxYouDeaDPunKxX/PA_PVP-a-PLUTONIUM-like-Adversarial-Peer-Validation-Protocol/blob/main/QUICKSTART.md)
    - Use this when you want the simplest copy/paste workflow to run the kernel.
 
 We call it the "kernel" because of its internal structure: this choice is intentional to reduce drift and noise: one rule-ordered SSOT core enforces invariants and produces the state transition, while everything else (Quickstart, REPORT, orchestration policy) stays a consumer layer that must not change SSOT semantics.

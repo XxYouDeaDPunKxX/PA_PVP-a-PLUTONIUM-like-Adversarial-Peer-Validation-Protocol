@@ -20,8 +20,8 @@ It turns a plan into:
 
 ## Canonical kernel (AI execution)
 The full protocol text lives in the repo root:
-- [PA_PVP_full_v9.8.0_canonical.txt](https://github.com/XxYouDeaDPunKxX/PA-PVP/blob/main/PA_PVP_full_v9.8.0_canonical.txt)
+- [PA_PVP_full_v9.8.0_canonical.txt](https://github.com/XxYouDeaDPunKxX/PA_PVP-a-PLUTONIUM-like-Adversarial-Peer-Validation-Protocol/blob/main/PA_PVP_full_v9.8.0_canonical.txt)
 
 ## Quickstart
 If you want the simplest copy/paste entrypoint aligned with the current kernel, use:
-- [QUICKSTART.md](https://github.com/XxYouDeaDPunKxX/PA-PVP/blob/main/QUICKSTART.md)
+- [QUICKSTART.md](https://github.com/XxYouDeaDPunKxX/PA_PVP-a-PLUTONIUM-like-Adversarial-Peer-Validation-Protocol/blob/main/QUICKSTART.md)
