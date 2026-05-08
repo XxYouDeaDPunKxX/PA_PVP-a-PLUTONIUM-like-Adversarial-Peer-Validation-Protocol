@@ -57,16 +57,10 @@ Examples:
 
 > This plan feels plausible but fragile. Use PA_PVP to test it.
 
-> Give me PA_PVP output for this.
+> Give me PA_PVP output for this. (for starting the adversarial AI to AI loop.)
 
 You can start messy.
 Ask for PA_PVP output when you want a structured state you can paste back later.
-
-That is enough for a first run.
-
-```
-
-3. ✏️ Replace the placeholder title and bullets with your real situation.
 
 That is enough for a first run.
 
