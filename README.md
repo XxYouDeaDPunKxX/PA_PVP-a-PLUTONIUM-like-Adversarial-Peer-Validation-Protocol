@@ -45,15 +45,25 @@ It forces the work into an operational shape:
 
    [`PA_PVP_full_v9.8.0_canonical.txt`](PA_PVP_full_v9.8.0_canonical.txt)
 
-2. 📋 Paste this template into the chat host running PA_PVP:
+2. Ask in normal language.
 
-```text
-<<<B expire_days=30 ask_user=NONE exec_capability=NO_RUNTIME close_policy=SIM_OK ssot_scale=MIN resource_pool=>>>
+Examples:
 
-<<<I id=E1 title="Short title" expire_days=60 ask_user=INHERIT uses= reversibility=>>>
-<<<PLAN>>>
-- <your plan in bullets or numbered steps>
-<<<END>>>
+> Use PA_PVP on these findings and give me the next action.
+
+> I have two viable options and no clear winner. Use PA_PVP to get a verdict.
+
+> I'm stuck between a safe option and a risky one. Help me decide what moves next.
+
+> This plan feels plausible but fragile. Use PA_PVP to test it.
+
+> Give me PA_PVP output for this.
+
+You can start messy.
+Ask for PA_PVP output when you want a structured state you can paste back later.
+
+That is enough for a first run.
+
 ```
 
 3. ✏️ Replace the placeholder title and bullets with your real situation.
