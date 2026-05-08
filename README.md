@@ -1,6 +1,6 @@
-# PA_PVP
+# ⚖️ PA_PVP
 
-**A PLUTONIUM-like Adversarial Peer Validation Protocol**
+**🧩 A PLUTONIUM-like Adversarial Peer Validation Protocol**
 
 PA_PVP is a copy/paste decision loop.
 
@@ -10,34 +10,35 @@ It can stay light for small reversible choices and expand for higher-impact deci
 
 ![PA_PVP Banner](assets/banner.png)
 
-Doubt is not a blocker. It is a state transition.
+🧠 Doubt is not a blocker.  
+🔁 It is a state transition.
 
 ---
 
-## Start here
+## 🚀 Start here
 
 Use PA_PVP when something keeps staying vague:
 
-- a reversible choice that still needs a clean next step
-- a decision that will not close
-- a plan that needs pressure-testing
-- an artifact that needs validation
-- a project with too many possible next steps
-- a previous PA_PVP output you want to continue
+- 🪶 a reversible choice that still needs a clean next step
+- ⚖️ a decision that will not close
+- 🧪 a plan that needs pressure-testing
+- 🧱 an artifact that needs validation
+- 🧭 a project with too many possible next steps
+- 🔁 a previous PA_PVP output you want to continue
 
 PA_PVP does not default to discussion. It forces the work into an operational shape:
 
-- `DO NOW`
-- `DO LATER`
-- `DISCARD`
-- one `[NEXT]` action
-- a snapshot you can paste back into the next run
+- ⚡ `DO NOW`
+- 🕓 `DO LATER`
+- 🗑️ `DISCARD`
+- ▶️ one `[NEXT]` action
+- 📦 a snapshot you can paste back into the next run
 
 ---
 
-## Try it now
+## ⚡ Try it now
 
-1. Load the canonical kernel:
+1. 📄 Load the canonical kernel:
 
    [`PA_PVP_full_v9.9.0_canonical.txt`](PA_PVP_full_v9.9.0_canonical.txt)
 
@@ -63,11 +64,11 @@ That is enough for a first run.
 
 ---
 
-## What comes back
+## 🧾 What comes back
 
-A valid PA_PVP decision run gives you two surfaces.
+A valid PA_PVP decision run gives you two surfaces. 🔍
 
-First: one machine snapshot in a single code block.
+First: 🧠 one machine snapshot in a single code block.
 
 Inside it, look for:
 
@@ -93,29 +94,30 @@ E1 | DRAFT->ACTIVE | DO NOW | ... | gate:NONE | S1
 S1: <one executable or planned next action>
 ```
 
-Second: a human table after the code block.
+Second: 📋 a human table after the code block.
 
-The table is for scanning. The code block is the state.
+👀 The table is for scanning.  
+📦 The code block is the state.
 
 ---
 
-## Run the loop
+## 🔁 Run the loop
 
 PA_PVP is meant to be run more than once.
 
 Basic loop:
 
-1. Paste a plan, artifact, target, or current PA_PVP state.
-2. Get the verdict and `[NEXT]`.
-3. Execute, simulate, or inspect the next step.
-4. Paste the previous output back.
-5. PA_PVP continues from the state instead of restarting from zero.
+1. 📥 Paste a plan, artifact, target, or current PA_PVP state.
+2. ⚖️ Get the verdict and `[NEXT]`.
+3. 🧪 Execute, simulate, or inspect the next step.
+4. 🔁 Paste the previous output back.
+5. 🧭 PA_PVP continues from the state instead of restarting from zero.
 
 You do not need to manually cut the previous output into pieces for normal continuation. A full previous PA_PVP snapshot can be pasted back as input.
 
 ---
 
-## Repo contents
+## 📦 Repo contents
 
 | File | Purpose |
 |---|---|
@@ -126,9 +128,9 @@ You do not need to manually cut the previous output into pieces for normal conti
 
 ---
 
-## Practical limits
+## 🧯 Practical limits
 
-PA_PVP is not a free-form brainstorming prompt.
+PA_PVP is not a free-form brainstorming prompt. 🚫
 
 Scalable does not mean heavy by default. Small runs should stay short; larger or riskier runs can expand only when the state justifies it.
 
@@ -141,9 +143,9 @@ If the output is marked invalid, do not reuse it as machine state.
 ---
 
 <details>
-<summary>Technical reference</summary>
+<summary>🧩 Technical reference</summary>
 
-## Authority surface
+## 📌 Authority surface
 
 The canonical kernel is:
 
@@ -151,7 +153,7 @@ The canonical kernel is:
 
 The README is an entrypoint and technical reference. The kernel is the source of truth for execution semantics.
 
-## Kernel input
+## 🧱 Kernel input
 
 Optional batch header:
 
@@ -195,7 +197,7 @@ Optional per-item previous state:
 
 Normal continuation can use snapshot-as-input instead: paste the whole previous PA_PVP output and the kernel recovers prior item state.
 
-## AskUser switch
+## 🎛️ AskUser switch
 
 The kernel contains a contract switch:
 
@@ -213,7 +215,7 @@ AskUser = ON
 
 when you want the kernel to allow one minimal operator-facing evidence request. Even then, AskUser is gated: the item must be non-terminal, externally blocked, and mechanically eligible.
 
-## Output contract
+## 📦 Output contract
 
 For decision runs, PA_PVP emits exactly one machine code block.
 
@@ -238,7 +240,7 @@ After the code block, PA_PVP emits a derived-only `[HUMAN_TABLE]`. The table is 
 
 If `STATE: DECISION.TEST.FINAL` is missing, the output is non-operational and must not be used for execution.
 
-## Queue and lifecycle
+## 🧾 Queue and lifecycle
 
 `[QUEUE]` is the scan surface for execution:
 
@@ -270,7 +272,7 @@ Basic mapping:
 
 `CLOSED` is used only when the decision is finalized for now. `PROBING` is used when the decision needs an active reality probe or acquisition step.
 
-## Surface scaling
+## 🪜 Surface scaling
 
 The kernel scales output by state.
 
@@ -280,7 +282,7 @@ Items expand to DEBUG/full structure when contested or when a real gate is activ
 
 This keeps small decisions light without losing rigor for higher-risk work.
 
-## Gates and triggers
+## 🚦 Gates and triggers
 
 PA_PVP derives one `dominant_gate` per item.
 
@@ -301,7 +303,7 @@ Triggers map into gates by the kernel's `DOMINANT_GATE_MAP`. The gate is diagnos
 
 `SCORE_TRIAGE` is reserved for explicit score/impact routing. It must not be used only to expand output scale.
 
-## Missing source input
+## 🧩 Missing source input
 
 If a step or claim depends on missing source text, missing diff, missing original item body, missing commit hash, missing file target, or missing referenced source block, the kernel marks `required_source_missing=YES`.
 
@@ -313,7 +315,7 @@ It then does exactly one:
 
 It does not reconstruct missing text, diffs, hashes, file targets, or source blocks from prose.
 
-## Fail-fast and weak plans
+## 🪓 Fail-fast and weak plans
 
 The PLAN fail-fast gate applies when a plan lacks:
 
@@ -326,7 +328,7 @@ If `CopyPasteMode=MANUAL` and `AskUserMode=ALLOW`, it may ask for minimal specs 
 
 Repeated fail-fast reaches cut mode and discards the item with `FAIL_FAST_CUT`.
 
-## Steps and NEXT
+## ▶️ Steps and NEXT
 
 Steps are executable or measurable.
 
@@ -340,7 +342,7 @@ S{n}: <OBSERVABLE_VERB> <OBJECT> -> <OUTPUT> | timebox<=<N>m | fail_if=<OBSERVAB
 
 If more than five steps are needed, PA_PVP emits the first five executable steps after Step 1 priority and normal ordering, or splits independent sub-goals into separate items.
 
-## Evidence and closure
+## 🧪 Evidence and closure
 
 Default run profile:
 
@@ -358,7 +360,7 @@ Closure tiers:
 
 Irreversible or `REAL_ONLY` decisions cannot close as simulated. If real evidence is missing, the item parks with `CLOSE_BLOCKED_REAL_ONLY`.
 
-## Probes, debt, and hedge actions
+## 🔬 Probes, debt, and hedge actions
 
 Low-confidence critical drivers push the item toward `PROBING` unless a higher-priority rule blocks it.
 
@@ -370,7 +372,7 @@ Debt is tracked by critical driver, with a ceiling of two active debt drivers.
 
 Hedge actions are allowed only when Cost of Delay is high, waiting exceeds the opportunity window, the action is reversible or risk-contained, a risk cap is declared, a parallel probe starts, and Falsification Debt is declared.
 
-## Reports
+## 📋 Reports
 
 `REPORT LITE` and `REPORT` are read-only render passes over one PA_PVP snapshot.
 
@@ -385,7 +387,7 @@ Reports must not:
 
 Reports are for reading. They are not reusable state.
 
-## Invalid output
+## ⛔ Invalid output
 
 If `[PANEL]` contains `OutputValidity: INVALID`, the output is diagnostic only.
 
@@ -393,7 +395,7 @@ Do not use invalid output as `<<<PREV>>>`.
 
 Do not recover snapshot state from invalid output.
 
-## Editing the kernel
+## 🛠️ Editing the kernel
 
 The protocol is a behavioral contract, not a prose article.
 
@@ -411,7 +413,7 @@ When changing it:
 
 ---
 
-## License
+## 📜 License
 
 Unless otherwise noted, this repository is licensed under:
 
@@ -421,7 +423,7 @@ See [`LICENSE`](LICENSE).
 
 Attribution recipe:
 
-- Project: PA_PVP - a PLUTONIUM-like Adversarial Peer Validation Protocol
-- Source: link to this repo or the specific file
-- License: CC BY-SA 4.0
-- Changes: state what you changed, if anything
+- 🧩 Project: PA_PVP - a PLUTONIUM-like Adversarial Peer Validation Protocol
+- 🔗 Source: link to this repo or the specific file
+- 📜 License: CC BY-SA 4.0
+- ✏️ Changes: state what you changed, if anything
