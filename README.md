@@ -1,49 +1,45 @@
-# ⚖️ PA_PVP
+# PA_PVP
 
-**🧩 a PLUTONIUM-like Adversarial Peer Validation Protocol**
+**A PLUTONIUM-like Adversarial Peer Validation Protocol**
 
 PA_PVP is a copy/paste decision loop.
 
-You give it a plan, artifact, or uncertain situation.  
-It gives back one verdict, one next action, and a state you can paste back to continue.
+You give it a plan, artifact, target, or uncertain situation. It gives back a verdict, a next action, and a state you can paste back later.
 
 It can stay light for small reversible choices and expand for higher-impact decisions without changing the workflow.
 
-![PA_PVP Banner](docs/banner.png)
+![PA_PVP Banner](assets/banner.png)
 
-🧠 Doubt is not a blocker.  
-🔁 It is a state transition.
-
----
-
-## 🚀 Start here
-
-Use PA_PVP when you have something that keeps staying vague:
-
-- 🪶 a small reversible choice that still needs a clean next step
-- ⚖️ a decision that will not close
-- 🧪 a plan that needs pressure-testing
-- 🧱 an artifact that needs validation
-- 🧭 a project with too many possible next steps
-- 🔁 a previous PA_PVP output you want to continue
-
-PA_PVP does not answer with a discussion by default.
-
-It forces the work into an operational shape:
-
-- ⚡ `DO NOW`
-- 🕓 `DO LATER`
-- 🗑️ `DISCARD`
-- ▶️ one `[NEXT]` action
-- 📦 a snapshot you can paste back into the next run
+Doubt is not a blocker. It is a state transition.
 
 ---
 
-## ⚡ Try it now
+## Start here
 
-1. 📄 Load the canonical kernel:
+Use PA_PVP when something keeps staying vague:
 
-   [`PA_PVP_full_v9.8.0_canonical.txt`](PA_PVP_full_v9.8.0_canonical.txt)
+- a reversible choice that still needs a clean next step
+- a decision that will not close
+- a plan that needs pressure-testing
+- an artifact that needs validation
+- a project with too many possible next steps
+- a previous PA_PVP output you want to continue
+
+PA_PVP does not default to discussion. It forces the work into an operational shape:
+
+- `DO NOW`
+- `DO LATER`
+- `DISCARD`
+- one `[NEXT]` action
+- a snapshot you can paste back into the next run
+
+---
+
+## Try it now
+
+1. Load the canonical kernel:
+
+   [`PA_PVP_full_v9.9.0_canonical.txt`](PA_PVP_full_v9.9.0_canonical.txt)
 
 2. Ask in normal language.
 
@@ -60,17 +56,18 @@ Examples:
 > Give me PA_PVP output for this. (for starting the adversarial AI to AI loop.)
 
 You can start messy.
+
 Ask for PA_PVP output when you want a structured state you can paste back later.
 
 That is enough for a first run.
 
 ---
 
-## 🧾 What comes back
+## What comes back
 
-A valid PA_PVP run gives you two surfaces. 🔍
+A valid PA_PVP decision run gives you two surfaces.
 
-First: 🧠 one machine snapshot in a single code block.
+First: one machine snapshot in a single code block.
 
 Inside it, look for:
 
@@ -87,313 +84,344 @@ and:
 Typical first shape:
 
 ```text
+STATE: DECISION.TEST.FINAL
+
 [QUEUE]
-E1 | verdict: DO NOW / DO LATER / DISCARD | gate: ...
+E1 | DRAFT->ACTIVE | DO NOW | ... | gate:NONE | S1
 
 [NEXT]
 S1: <one executable or planned next action>
 ```
 
-Second: 📋 a human table after the code block.
+Second: a human table after the code block.
 
-👀 That table is for scanning.  
-📦 The code block is the state.
+The table is for scanning. The code block is the state.
 
 ---
 
-## 🔁 Run the loop
+## Run the loop
 
 PA_PVP is meant to be run more than once.
 
 Basic loop:
 
-1. 📥 paste a plan, artifact, or current state
-2. ⚖️ get the verdict and `[NEXT]`
-3. 🧪 execute, simulate, or inspect the next step
-4. 🔁 paste the previous output back
-5. 🧭 PA_PVP continues from the state instead of restarting from zero
+1. Paste a plan, artifact, target, or current PA_PVP state.
+2. Get the verdict and `[NEXT]`.
+3. Execute, simulate, or inspect the next step.
+4. Paste the previous output back.
+5. PA_PVP continues from the state instead of restarting from zero.
 
-You do not need to manually cut the previous output into pieces for normal continuation.  
-A full previous PA_PVP snapshot can be pasted back as input.
-
----
-
-## 🧭 Choose your entrypoint
-
-| If you want to... | Open |
-|---|---|
-| ⚡ try PA_PVP quickly | [`QUICKSTART.md`](QUICKSTART.md) |
-| 🧠 run the canonical protocol | [`PA_PVP_full_v9.8.0_canonical.txt`](PA_PVP_full_v9.8.0_canonical.txt) |
-| 🗺️ understand the operating model | [`docs/guide.md`](docs/guide.md) |
-| 📚 check field meanings and tokens | [`docs/glossary.md`](docs/glossary.md) |
-| 🧪 test behavior against examples | [`docs/examples.md`](docs/examples.md) |
-| 📜 reuse or adapt the project | [`LICENSE`](LICENSE) and [`docs/license.md`](docs/license.md) |
+You do not need to manually cut the previous output into pieces for normal continuation. A full previous PA_PVP snapshot can be pasted back as input.
 
 ---
 
-## 📦 Repo contents
+## Repo contents
 
 | File | Purpose |
 |---|---|
-| 🧠 [`PA_PVP_full_v9.8.0_canonical.txt`](PA_PVP_full_v9.8.0_canonical.txt) | Canonical kernel. This is the authority surface. |
-| ⚡ [`QUICKSTART.md`](QUICKSTART.md) | Short copy/paste path for first use. |
-| 🗺️ [`docs/guide.md`](docs/guide.md) | Operating model, continuation rules, reports, evidence, and execution behavior. |
-| 📚 [`docs/glossary.md`](docs/glossary.md) | Closed vocabulary for states, verdicts, gates, evidence, panels, and tags. |
-| 🧪 [`docs/examples.md`](docs/examples.md) | Validation examples and invariants. |
-| 📜 [`docs/license.md`](docs/license.md) | Practical license and attribution guidance. |
+| [`PA_PVP_full_v9.9.0_canonical.txt`](PA_PVP_full_v9.9.0_canonical.txt) | Canonical kernel. This is the authority surface. |
+| [`README.md`](README.md) | Human entrypoint and technical reference. |
+| [`assets/banner.png`](assets/banner.png) | Repository banner image. |
+| [`LICENSE`](LICENSE) | License text. |
 
 ---
 
-## 🧯 Practical limits
+## Practical limits
 
-PA_PVP is not a free-form brainstorming prompt. 🚫
+PA_PVP is not a free-form brainstorming prompt.
 
-Scalable does not mean heavy by default. Small runs should stay short; larger or riskier runs can expand only when the structure justifies it.
+Scalable does not mean heavy by default. Small runs should stay short; larger or riskier runs can expand only when the state justifies it.
 
 It works best when there is something to push through a decision loop: a plan, artifact, trade-off, blocker, or previous state.
 
-If the available evidence is weak, PA_PVP should not pretend certainty.  
-Depending on the settings, it may 🔬 simulate a closure, 🅿️ park the item, 📡 request one minimal evidence probe, or 🗑️ discard the item.
+If evidence is weak, PA_PVP should not pretend certainty. Depending on the state, it may simulate a closure, park the item, request one minimal evidence input, probe the decision, or discard the item.
 
-If the output is marked invalid, do not reuse it as machine state. ⛔
+If the output is marked invalid, do not reuse it as machine state.
 
 ---
 
 <details>
-<summary>🧩 Technical contract</summary>
+<summary>Technical reference</summary>
 
-## 📌 Authority surface
+## Authority surface
 
 The canonical kernel is:
 
-[`PA_PVP_full_v9.8.0_canonical.txt`](PA_PVP_full_v9.8.0_canonical.txt)
+[`PA_PVP_full_v9.9.0_canonical.txt`](PA_PVP_full_v9.9.0_canonical.txt)
 
-The README is an entrypoint.  
-The quickstart, guide, glossary, reports, and examples are support surfaces.
+The README is an entrypoint and technical reference. The kernel is the source of truth for execution semantics.
 
-The kernel is the source of truth for execution semantics.
+## Kernel input
 
----
-
-## 🧱 Kernel output invariants
-
-For decision runs, PA_PVP must produce:
-
-- 📦 exactly one machine code block
-- 🏷️ `STATE: DECISION.TEST.FINAL`
-- 👤 `[USER_PANEL]`
-- 🧭 `[PANEL]`
-- ⚖️ `[QUEUE]`
-- 🧩 item blocks
-- ▶️ one `[NEXT]` action when the item is executable or planned
-- 👀 a derived `[HUMAN_TABLE]` after the code block
-
-The human table is derived-only.  
-It must not be treated as the state source.
-
----
-
-## 🪜 Scalability model
-
-PA_PVP is designed to scale without changing the operator workflow.
-
-A small low-impact item should not trigger the full machinery by default.  
-A larger, contested, blocked, or higher-risk item can expand into the deeper contract when the state requires it.
-
-The mechanism is `MIN_SURFACE`: low-impact or DIY items stay compact unless they actually enter probing or hit a gate that needs more structure.
-
----
-
-## 🎛️ Input wrappers
-
-Batch header:
+Optional batch header:
 
 ```text
-<<<B keep_open=NO expire_days=30 ask_user=NONE exec_capability=NO_RUNTIME close_policy=SIM_OK ssot_scale=MIN resource_pool=>>>
+<<<B keep_open=NO expire_days=30 exec_capability=NO_RUNTIME close_policy=SIM_OK ssot_scale=MIN resource_pool=>>>
 ```
 
-Item wrapper:
+Wrapped item:
 
 ```text
-<<<I id=E1 title="short title" keep_open=NO expire_days=30 depends_on= ask_user=INHERIT uses= reversibility=>>>
-...
+<<<I id=E1 title="short title" keep_open=NO expire_days=30 depends_on= uses= reversibility=>>>
+...payload...
 <<<END>>>
 ```
 
-Each item uses exactly one input mode:
+Each item uses exactly one mode:
 
 ```text
 <<<PLAN>>>
+- bullet list of actions/options OR numbered steps
 ```
 
 ```text
 <<<ARTIFACT>>>
+<prompt/file/protocol/code/doc/etc>
 ```
 
 ```text
 <<<TOOL>>>
+<the analysis tool / standard / checklist>
 <<<TARGET>>>
+<the target artifact to audit/optimize>
 ```
 
----
-
-## ⚖️ Verdicts
-
-Closed verdict vocabulary:
-
-- ⚡ `DO NOW`
-- 🕓 `DO LATER`
-- 🗑️ `DISCARD`
-
-No `"it depends"` verdict.
-
-If an item cannot produce a valid next action, it must be parked, redesigned, discarded, or marked invalid by rule.
-
----
-
-## 🔁 Continuation state
-
-PA_PVP supports continuation through previous state.
-
-You can provide item-level previous state with:
+Optional per-item previous state:
 
 ```text
 <<<PREV>>>
+<previous PA_PVP machine state for this item>
 ```
 
-You can also paste a full previous PA_PVP snapshot back as input.
+Normal continuation can use snapshot-as-input instead: paste the whole previous PA_PVP output and the kernel recovers prior item state.
 
-The runtime should recover the previous item state and continue from it instead of treating the pasted snapshot as a new plan.
+## AskUser switch
 
----
-
-## 🧾 Reports
-
-Human report commands:
+The kernel contains a contract switch:
 
 ```text
-REPORT LITE
+AskUser = OFF
 ```
 
+Default `OFF` means PA_PVP should not ask the operator for missing evidence. It simulates, parks, probes, or cuts by rule.
+
+Set it to:
+
 ```text
-REPORT
+AskUser = ON
 ```
 
-Reports are derived-only render passes.
+when you want the kernel to allow one minimal operator-facing evidence request. Even then, AskUser is gated: the item must be non-terminal, externally blocked, and mechanically eligible.
 
-They must not:
+## Output contract
 
-- ⚖️ change verdicts
-- 🚧 change gates
-- 🏷️ change triggers
-- ▶️ change steps
-- 🧪 introduce new facts
-- 📦 output a new machine code block
+For decision runs, PA_PVP emits exactly one machine code block.
 
-A report is for reading.  
-It is not reusable state.
-
----
-
-## 📡 External evidence mode
-
-Default behavior:
+The code block starts with:
 
 ```text
-ask_user=NONE
+STATE: DECISION.TEST.FINAL
 ```
 
-If enabled:
+Inside the code block, section order is:
 
 ```text
-ask_user=ALLOW
+[USER_PANEL]
+[PANEL]
+[QUEUE]
+[ITEM id=...]
 ```
 
-PA_PVP may ask for one minimal real-world input when mechanically justified.
+`[RECOVERY_INPUT]` is optional and appears only when explicitly requested.
 
-The user is not treated as a passive copy/paste operator.  
-The user can become the evidence source that connects the run to external reality.
+After the code block, PA_PVP emits a derived-only `[HUMAN_TABLE]`. The table is not machine state.
 
----
+If `STATE: DECISION.TEST.FINAL` is missing, the output is non-operational and must not be used for execution.
 
-## 🧪 Evidence and closure
+## Queue and lifecycle
 
-Default batch profile:
+`[QUEUE]` is the scan surface for execution:
 
 ```text
-exec_capability=NO_RUNTIME
-close_policy=SIM_OK
+id | prev_state->new_state | verdict | impact | urgency | ds | term | ct | pp | exp | gate | step1
+```
+
+Core verdicts:
+
+- `DO NOW`
+- `DO LATER`
+- `DISCARD`
+
+Core states:
+
+- `DRAFT`
+- `ACTIVE`
+- `STANDBY`
+- `PROBING`
+- `CLOSED`
+- `EXPIRED`
+- `DISCARDED`
+
+Basic mapping:
+
+- `DO NOW` -> `ACTIVE`
+- `DO LATER` -> `STANDBY`
+- `DISCARD` -> `DISCARDED`
+
+`CLOSED` is used only when the decision is finalized for now. `PROBING` is used when the decision needs an active reality probe or acquisition step.
+
+## Surface scaling
+
+The kernel scales output by state.
+
+Low-impact or DIY items use `MIN_SURFACE` unless they enter probing or hit a gate that requires more structure.
+
+Items expand to DEBUG/full structure when contested or when a real gate is active.
+
+This keeps small decisions light without losing rigor for higher-risk work.
+
+## Gates and triggers
+
+PA_PVP derives one `dominant_gate` per item.
+
+Gate vocabulary:
+
+- `FAIL_FAST_CUT`
+- `FALSIFICATION`
+- `DEBT_CEILING`
+- `FRAGILITY`
+- `DEPENDENCY_BLOCK`
+- `CONFIDENCE_CAP`
+- `EXTERNAL_BLOCK`
+- `REDESIGN_TRIGGER`
+- `SCORE_TRIAGE`
+- `NONE`
+
+Triggers map into gates by the kernel's `DOMINANT_GATE_MAP`. The gate is diagnostic and routing-oriented; it should not invent new semantics.
+
+`SCORE_TRIAGE` is reserved for explicit score/impact routing. It must not be used only to expand output scale.
+
+## Missing source input
+
+If a step or claim depends on missing source text, missing diff, missing original item body, missing commit hash, missing file target, or missing referenced source block, the kernel marks `required_source_missing=YES`.
+
+It then does exactly one:
+
+- acquire the identifiable missing source with one bounded step
+- park the item in `STANDBY`
+- discard only if a higher-priority rule already forces discard
+
+It does not reconstruct missing text, diffs, hashes, file targets, or source blocks from prose.
+
+## Fail-fast and weak plans
+
+The PLAN fail-fast gate applies when a plan lacks:
+
+- clear goal state
+- hard constraint
+
+If `CopyPasteMode=NO_LOOK` or `AskUserMode=NONE`, PA_PVP auto-derives minimal specs as `SIMULATED` and continues.
+
+If `CopyPasteMode=MANUAL` and `AskUserMode=ALLOW`, it may ask for minimal specs and stop that item.
+
+Repeated fail-fast reaches cut mode and discards the item with `FAIL_FAST_CUT`.
+
+## Steps and NEXT
+
+Steps are executable or measurable.
+
+Step grammar:
+
+```text
+S{n}: <OBSERVABLE_VERB> <OBJECT> -> <OUTPUT> | timebox<=<N>m | fail_if=<OBSERVABLE_CONDITION>
+```
+
+`[NEXT]` must match one emitted step. It cannot invent a new action.
+
+If more than five steps are needed, PA_PVP emits the first five executable steps after Step 1 priority and normal ordering, or splits independent sub-goals into separate items.
+
+## Evidence and closure
+
+Default run profile:
+
+```text
+ExecCapability=NO_RUNTIME
+ClosePolicy=SIM_OK
 ```
 
 This allows simulated closure when real execution is unavailable, but simulated closure must remain labeled.
 
-Important distinction:
+Closure tiers:
 
-- 🧪 `ct:SIM` = simulated closure
-- 🧾 `ct:REAL` = closure backed by real, historical, or experimental evidence
+- `ct:SIM` = simulated closure
+- `ct:REAL` = closure backed by historical, real, or experimental evidence
 
-Irreversible decisions must not close as simulated.
+Irreversible or `REAL_ONLY` decisions cannot close as simulated. If real evidence is missing, the item parks with `CLOSE_BLOCKED_REAL_ONLY`.
 
----
+## Probes, debt, and hedge actions
 
-## 🧭 Gates and blockers
+Low-confidence critical drivers push the item toward `PROBING` unless a higher-priority rule blocks it.
 
-PA_PVP uses closed gate vocabulary to keep outputs stable across iterations.
+When an item enters `PROBING`, it includes `[PROBE_LOG]`.
 
-Common gates include:
+When an item carries Falsification Debt outside DIY mode, `[PROBE_LOG]` appears only if current or previous probe entries exist. The kernel must not fabricate probe entries to explain debt.
 
-- 🪓 `FAIL_FAST_CUT`
-- 🧪 `FALSIFICATION`
-- 🧾 `DEBT_CEILING`
-- 🧨 `FRAGILITY`
-- 🔗 `DEPENDENCY_BLOCK`
-- 📉 `CONFIDENCE_CAP`
-- 📡 `EXTERNAL_BLOCK`
-- 🧱 `REDESIGN_TRIGGER`
-- ⚖️ `SCORE_TRIAGE`
-- ✅ `NONE`
+Debt is tracked by critical driver, with a ceiling of two active debt drivers.
 
-Use [`docs/glossary.md`](docs/glossary.md) for field meanings.
+Hedge actions are allowed only when Cost of Delay is high, waiting exceeds the opportunity window, the action is reversible or risk-contained, a risk cap is declared, a parallel probe starts, and Falsification Debt is declared.
 
----
+## Reports
 
-## 🧷 Dependencies and resources
+`REPORT LITE` and `REPORT` are read-only render passes over one PA_PVP snapshot.
 
-PA_PVP can model:
+Reports must not:
 
-- 🔗 `depends_on`
-- 🧰 `resource_pool`
-- 📌 `uses`
+- change verdicts
+- change gates
+- change triggers
+- change steps
+- introduce new facts
+- output a new machine state block
 
-Circular dependency is a modeling error.  
-It should force redesign instead of waiting forever.
+Reports are for reading. They are not reusable state.
 
-Resource overload can demote lower-priority items by fixed rule.
+## Invalid output
 
----
+If `[PANEL]` contains `OutputValidity: INVALID`, the output is diagnostic only.
 
-## 🧪 Validation examples
+Do not use invalid output as `<<<PREV>>>`.
 
-Use [`docs/examples.md`](docs/examples.md) as a behavior check when editing the kernel or documentation.
+Do not recover snapshot state from invalid output.
 
-The examples are not just demos.  
-They are equivalence probes for whether the protocol still behaves correctly after changes.
+## Editing the kernel
+
+The protocol is a behavioral contract, not a prose article.
+
+When changing it:
+
+- keep execution rules inside the kernel
+- keep human explanation inside this README
+- avoid version metadata and packaging text inside the kernel
+- prefer deterministic branches over vague guidance
+- keep AskUser gated by the contract switch
+- keep missing source handling non-fabricating
+- preserve snapshot-as-input and delta-only ping-pong
 
 </details>
 
 ---
 
-## 📜 License
+## License
 
 Unless otherwise noted, this repository is licensed under:
 
 **Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0).**
 
-See [`LICENSE`](LICENSE) and [`docs/license.md`](docs/license.md).
+See [`LICENSE`](LICENSE).
 
 Attribution recipe:
 
-- 🧩 Project: PA_PVP - a PLUTONIUM-like Adversarial Peer Validation Protocol
-- 🔗 Source: <link to this repo or the specific file/version>
-- 📜 License: CC BY-SA 4.0
-- ✏️ Changes: <state what you changed, if anything>
+- Project: PA_PVP - a PLUTONIUM-like Adversarial Peer Validation Protocol
+- Source: link to this repo or the specific file
+- License: CC BY-SA 4.0
+- Changes: state what you changed, if anything
