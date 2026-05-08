@@ -1,0 +1,76 @@
+# PA_PVP
+
+Name: PA_PVP
+Subtitle: PLUTONIUM-like Adversarial Peer Validation Protocol
+Type: Copy/paste decision loop
+URL: https://xxyoudeadpunkxx.github.io/PA_PVP-a-PLUTONIUM-like-Adversarial-Peer-Validation-Protocol/
+Repository: https://github.com/XxYouDeaDPunKxX/PA_PVP-a-PLUTONIUM-like-Adversarial-Peer-Validation-Protocol
+License: CC BY-SA 4.0
+Canonical protocol file: PA_PVP_full_v9.9.0_canonical.txt
+
+## Purpose
+PA_PVP takes a plan, artifact, target, uncertain situation, or previous PA_PVP output and returns a verdict, one executable next action, and a state that can be pasted back later.
+
+## Use cases
+- reversible choice that still needs a clean next step
+- decision that will not close
+- plan that needs pressure-testing
+- artifact that needs validation
+- project with too many possible next steps
+- previous PA_PVP output to continue
+
+## Output surfaces
+A valid PA_PVP decision run gives two surfaces:
+- one machine snapshot in a single code block
+- one human table after the code block
+
+Machine snapshot markers include:
+- STATE: DECISION.TEST.FINAL
+- [QUEUE]
+- [NEXT]
+
+The code block is the machine state.
+The human table is for scanning and is not reusable machine state.
+
+## Core verdicts
+- DO NOW
+- DO LATER
+- DISCARD
+
+## Core states
+- DRAFT
+- ACTIVE
+- STANDBY
+- PROBING
+- CLOSED
+- EXPIRED
+- DISCARDED
+
+## Loop
+1. Paste a plan, artifact, target, or current PA_PVP state.
+2. Get the verdict and [NEXT].
+3. Execute, simulate, or inspect the next step.
+4. Paste the previous output back.
+5. PA_PVP continues from the state instead of restarting from zero.
+
+## Input surfaces
+- PLAN
+- ARTIFACT
+- TOOL plus TARGET
+- PREV
+- full previous PA_PVP snapshot as input
+
+## AskUser switch
+Default AskUser = OFF.
+When evidence is missing, PA_PVP simulates, parks, probes, or cuts by rule.
+AskUser = ON allows one minimal operator-facing evidence request only when mechanically eligible.
+
+## Practical limits
+PA_PVP is not a free-form brainstorming prompt.
+Small runs should stay short.
+Larger or riskier runs can expand only when state justifies it.
+If evidence is weak, PA_PVP should not pretend certainty.
+If output is invalid, do not reuse it as machine state.
+
+## Keywords
+decision protocol, adversarial peer validation, copy paste decision loop, clear verdicts, executable next action, bounded uncertainty, PA_PVP
