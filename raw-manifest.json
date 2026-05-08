@@ -1,0 +1,83 @@
+{
+  "name": "PA_PVP",
+  "subtitle": "PLUTONIUM-like Adversarial Peer Validation Protocol",
+  "type": "Copy/paste decision loop",
+  "description": "A copy/paste decision protocol for clear verdicts, executable next actions, probes, and uncertainty under control.",
+  "page_url": "https://xxyoudeadpunkxx.github.io/PA_PVP-a-PLUTONIUM-like-Adversarial-Peer-Validation-Protocol/",
+  "repository": "https://github.com/XxYouDeaDPunKxX/PA_PVP-a-PLUTONIUM-like-Adversarial-Peer-Validation-Protocol",
+  "license": "CC BY-SA 4.0",
+  "canonical_protocol_file": "PA_PVP_full_v9.9.0_canonical.txt",
+  "purpose": "Take a plan, artifact, target, uncertain situation, or previous PA_PVP output and return a verdict, one executable next action, and a state that can be pasted back later.",
+  "use_cases": [
+    "reversible choice that still needs a clean next step",
+    "decision that will not close",
+    "plan that needs pressure-testing",
+    "artifact that needs validation",
+    "project with too many possible next steps",
+    "previous PA_PVP output to continue"
+  ],
+  "output_surfaces": {
+    "machine_snapshot": {
+      "description": "One machine snapshot in a single code block.",
+      "markers": [
+        "STATE: DECISION.TEST.FINAL",
+        "[QUEUE]",
+        "[NEXT]"
+      ],
+      "reusable_state": true
+    },
+    "human_table": {
+      "description": "Derived-only scanning table after the code block.",
+      "reusable_state": false
+    }
+  },
+  "core_verdicts": [
+    "DO NOW",
+    "DO LATER",
+    "DISCARD"
+  ],
+  "core_states": [
+    "DRAFT",
+    "ACTIVE",
+    "STANDBY",
+    "PROBING",
+    "CLOSED",
+    "EXPIRED",
+    "DISCARDED"
+  ],
+  "loop_steps": [
+    "Paste a plan, artifact, target, or current PA_PVP state.",
+    "Get the verdict and [NEXT].",
+    "Execute, simulate, or inspect the next step.",
+    "Paste the previous output back.",
+    "PA_PVP continues from the state instead of restarting from zero."
+  ],
+  "input_surfaces": [
+    "PLAN",
+    "ARTIFACT",
+    "TOOL plus TARGET",
+    "PREV",
+    "full previous PA_PVP snapshot as input"
+  ],
+  "ask_user_switch": {
+    "default": "OFF",
+    "off_behavior": "Simulates, parks, probes, or cuts by rule when evidence is missing.",
+    "on_behavior": "Allows one minimal operator-facing evidence request only when mechanically eligible."
+  },
+  "practical_limits": [
+    "Not a free-form brainstorming prompt.",
+    "Small runs should stay short.",
+    "Larger or riskier runs can expand only when state justifies it.",
+    "If evidence is weak, PA_PVP should not pretend certainty.",
+    "If output is invalid, do not reuse it as machine state."
+  ],
+  "keywords": [
+    "decision protocol",
+    "adversarial peer validation",
+    "copy paste decision loop",
+    "clear verdicts",
+    "executable next action",
+    "bounded uncertainty",
+    "PA_PVP"
+  ]
+}
