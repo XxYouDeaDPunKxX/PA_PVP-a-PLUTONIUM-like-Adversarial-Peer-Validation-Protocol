@@ -3,11 +3,15 @@
   "subtitle": "PLUTONIUM-like Adversarial Peer Validation Protocol",
   "type": "Copy/paste decision loop",
   "description": "A copy/paste decision protocol for clear verdicts, executable next actions, probes, and uncertainty under control.",
+  "url": "https://xxyoudeadpunkxx.github.io/PA_PVP-a-PLUTONIUM-like-Adversarial-Peer-Validation-Protocol/",
   "page_url": "https://xxyoudeadpunkxx.github.io/PA_PVP-a-PLUTONIUM-like-Adversarial-Peer-Validation-Protocol/",
   "repository": "https://github.com/XxYouDeaDPunKxX/PA_PVP-a-PLUTONIUM-like-Adversarial-Peer-Validation-Protocol",
   "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
   "canonical_protocol_file": "PA_PVP_full_v9.9.0_canonical.txt",
+  "identity": "Close decisions. Keep moving. Doubt should generate motion, not delay.",
   "purpose": "Take a plan, artifact, target, uncertain situation, or previous PA_PVP output and return a verdict, one executable next action, and a state that can be pasted back later.",
+  "use_case": "Use PA_PVP when a plan, artifact, target, uncertain situation, or previous PA_PVP output needs pressure-testing and closure into a concrete next move.",
   "use_cases": [
     "reversible choice that still needs a clean next step",
     "decision that will not close",
@@ -71,6 +75,26 @@
     "If evidence is weak, PA_PVP should not pretend certainty.",
     "If output is invalid, do not reuse it as machine state."
   ],
+  "discovery_set": {
+    "llms": "llms.txt",
+    "manifest": "raw-manifest.json",
+    "robots": "robots.txt",
+    "sitemap": "sitemap.xml",
+    "html_signals": [
+      "canonical URL",
+      "rel=alternate for llms.txt",
+      "rel=alternate for raw-manifest.json",
+      "JSON-LD SoftwareSourceCode metadata",
+      "Open Graph metadata",
+      "footer machine-readable links"
+    ]
+  },
+  "machine_readable_files": [
+    "llms.txt",
+    "raw-manifest.json",
+    "robots.txt",
+    "sitemap.xml"
+  ],
   "keywords": [
     "decision protocol",
     "adversarial peer validation",
@@ -78,6 +102,10 @@
     "clear verdicts",
     "executable next action",
     "bounded uncertainty",
-    "PA_PVP"
+    "PA_PVP",
+    "PLUTONIUM-like protocol",
+    "decision closure",
+    "reality probes",
+    "reusable state"
   ]
 }
