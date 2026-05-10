@@ -68,7 +68,7 @@
 </head>
 <body>
   <div class="page-shell">
-    <header class="site-header">
+    <header class="site-header shell-row">
       <a class="brand" href="#top">PA_PVP</a>
       <nav class="site-nav">
         <a href="#problem">Problem</a>
@@ -78,9 +78,9 @@
       </nav>
     </header>
 
-    <main id="top">
-      <section class="hero">
-        <div class="hero-copy">
+    <main id="top" class="page-flow">
+      <section class="hero phi-section phi-pair phi-pair-hero">
+        <div class="hero-copy copy-stack copy-stack-hero">
           <p class="eyebrow">PLUTONIUM-like Adversarial Peer Validation Protocol</p>
           <h1>Close decisions. Do not debate forever.</h1>
           <p class="lead">
@@ -94,19 +94,19 @@
           <p>
             Successful first run: a verdict in <code>[QUEUE]</code>, one <code>[NEXT]</code>, and a readable <code>[HUMAN_TABLE]</code>.
           </p>
-          <ul class="hero-points">
+          <ul class="point-list hero-points">
             <li>Clear verdict: DO NOW / DO LATER / DISCARD</li>
             <li>One next action, not a pile of options</li>
             <li>Reality probes when simulation stops being enough</li>
           </ul>
         </div>
-        <div class="hero-visual">
-          <img src="banner.png" alt="PA_PVP banner">
-        </div>
+        <figure class="hero-visual art-frame art-frame-hero" aria-hidden="true">
+          <img src="banner.png" alt="">
+        </figure>
       </section>
 
-      <section id="problem" class="problem-section">
-        <div class="section-heading">
+      <section id="problem" class="problem-section phi-section section-stack">
+        <div class="section-heading copy-stack centered-copy">
           <p class="eyebrow">Why it exists</p>
           <h2>Doubt should generate motion, not delay.</h2>
           <p>
@@ -114,25 +114,25 @@
             or they produce a list instead of a trajectory. PA_PVP is built to break all three failure modes.
           </p>
         </div>
-        <div class="problem-grid">
-          <article>
+        <div class="problem-grid card-grid card-grid-three">
+          <article class="info-card">
             <span>Too much debate</span>
             <p>No endless discussion loops. The protocol closes to a verdict.</p>
           </article>
-          <article>
+          <article class="info-card">
             <span>Too much simulation</span>
             <p>When internal evidence is weak, the protocol escalates to probes or parks cleanly.</p>
           </article>
-          <article>
+          <article class="info-card">
             <span>Too little movement</span>
             <p>If the next step does not reduce uncertainty or change the world, the run is invalid.</p>
           </article>
         </div>
       </section>
 
-      <section id="protocol" class="kernel-section">
-        <div class="kernel-copy">
-          <div class="section-heading">
+      <section id="protocol" class="kernel-section phi-section phi-pair phi-pair-copy">
+        <div class="kernel-copy section-stack">
+          <div class="section-heading copy-stack">
             <p class="eyebrow">What the protocol does</p>
             <h2>Pressure-testing in service of execution.</h2>
             <p>
@@ -140,37 +140,37 @@
               critique, a verdict, reusable state, and a short executable path.
             </p>
           </div>
-          <div class="feature-grid">
-            <article class="feature-card">
+          <div class="feature-grid card-grid card-grid-two">
+            <article class="feature-card info-card">
               <h3>Forced verdict</h3>
               <p>Every valid run ends in a clear decision: <code>DO NOW</code>, <code>DO LATER</code>, or <code>DISCARD</code>.</p>
             </article>
-            <article class="feature-card">
+            <article class="feature-card info-card">
               <h3>Executable next</h3>
               <p>The protocol must return one next action, not an essay or a motivational summary.</p>
             </article>
-            <article class="feature-card">
+            <article class="feature-card info-card">
               <h3>Probe-first honesty</h3>
               <p>If confidence is fragile, PA_PVP forces a real-world test or parks instead of pretending.</p>
             </article>
-            <article class="feature-card">
+            <article class="feature-card info-card">
               <h3>Rule-bound debt</h3>
               <p>Near misses, open uncertainty, and circular dependencies become constraints, not loose notes.</p>
             </article>
           </div>
         </div>
-        <div class="kernel-visual">
-          <img src="assets/images/pvp-verdict-fork.png" alt="PA_PVP verdict fork visualization">
-        </div>
+        <figure class="kernel-visual art-frame" aria-hidden="true">
+          <img src="assets/images/pvp-verdict-fork.png" alt="">
+        </figure>
       </section>
 
-      <section class="demo-panel">
-        <div class="section-heading">
+      <section class="demo-panel phi-section section-stack">
+        <div class="section-heading copy-stack centered-copy">
           <p class="eyebrow">Surface</p>
           <h2>The output is meant to move something.</h2>
         </div>
-        <div class="demo-columns">
-          <article class="demo-card">
+        <div class="demo-columns card-grid card-grid-two">
+          <article class="demo-card info-card">
             <h3>Input</h3>
             <pre><code>&lt;&lt;&lt;I id=E1 title="Short title"&gt;&gt;&gt;
 &lt;&lt;&lt;PLAN&gt;&gt;&gt;
@@ -179,7 +179,7 @@
 - deploy by Friday
 &lt;&lt;&lt;END&gt;&gt;&gt;</code></pre>
           </article>
-          <article class="demo-card output">
+          <article class="demo-card output info-card">
             <h3>Output</h3>
             <pre><code>STATE: DECISION.TEST.FINAL
 [QUEUE] ... gate: ...
@@ -190,12 +190,9 @@ verdict: DO NOW
         </div>
       </section>
 
-      <section id="loop" class="loop-section">
-        <div class="loop-visual">
-          <img src="assets/images/pvp-execution-chamber.png" alt="PA_PVP execution chamber visualization">
-        </div>
-        <div class="loop-copy">
-          <div class="section-heading">
+      <section id="loop" class="loop-section phi-section phi-pair phi-pair-hero">
+        <div class="loop-copy section-stack">
+          <div class="section-heading copy-stack">
             <p class="eyebrow">Evidence inside the loop</p>
             <h2>Start with what is available. Ask only when allowed.</h2>
             <p>
@@ -203,29 +200,32 @@ verdict: DO NOW
               PA_PVP either simulates cautiously, parks cleanly, or, if allowed, asks for one minimal real-world input.
             </p>
           </div>
-          <ul class="hero-points">
+          <ul class="point-list hero-points">
             <li>Paste-back continuation</li>
             <li>One minimal probe instead of speculative certainty</li>
             <li>Open uncertainty tracked across iterations</li>
           </ul>
         </div>
+        <figure class="loop-visual art-frame" aria-hidden="true">
+          <img src="assets/images/pvp-execution-chamber.png" alt="">
+        </figure>
       </section>
 
-      <section id="start" class="start-section">
-        <div class="section-heading">
+      <section id="start" class="start-section phi-section section-stack">
+        <div class="section-heading copy-stack centered-copy">
           <p class="eyebrow">Start here</p>
           <h2>Use the protocol, then the README.</h2>
         </div>
-        <div class="link-grid">
-          <a href="https://github.com/XxYouDeaDPunKxX/PA_PVP-a-PLUTONIUM-like-Adversarial-Peer-Validation-Protocol/blob/main/PA_PVP_full_v9.9.0_canonical.txt" class="link-card">
+        <div class="link-grid card-grid card-grid-three">
+          <a href="https://github.com/XxYouDeaDPunKxX/PA_PVP-a-PLUTONIUM-like-Adversarial-Peer-Validation-Protocol/blob/main/PA_PVP_full_v9.9.0_canonical.txt" class="link-card info-card">
             <span>Canonical protocol</span>
             <strong>PA_PVP_full_v9.9.0_canonical.txt</strong>
           </a>
-          <a href="https://github.com/XxYouDeaDPunKxX/PA_PVP-a-PLUTONIUM-like-Adversarial-Peer-Validation-Protocol/blob/main/README.md" class="link-card">
+          <a href="https://github.com/XxYouDeaDPunKxX/PA_PVP-a-PLUTONIUM-like-Adversarial-Peer-Validation-Protocol/blob/main/README.md" class="link-card info-card">
             <span>README</span>
             <strong>Start, examples, and technical reference</strong>
           </a>
-          <a href="https://github.com/XxYouDeaDPunKxX/PA_PVP-a-PLUTONIUM-like-Adversarial-Peer-Validation-Protocol/blob/main/LICENSE" class="link-card">
+          <a href="https://github.com/XxYouDeaDPunKxX/PA_PVP-a-PLUTONIUM-like-Adversarial-Peer-Validation-Protocol/blob/main/LICENSE" class="link-card info-card">
             <span>License</span>
             <strong>CC BY-SA 4.0</strong>
           </a>
@@ -233,7 +233,7 @@ verdict: DO NOW
       </section>
     </main>
 
-    <footer class="site-footer">
+    <footer class="site-footer section-stack">
       <p>PA_PVP - a PLUTONIUM-like Adversarial Peer Validation Protocol | GitHub Pages surface for the public repo | CC BY-SA 4.0</p>
       <!-- Discovery Set: low-noise links for crawlers, bots, and LLM readers. -->
       <p class="machine-links">
