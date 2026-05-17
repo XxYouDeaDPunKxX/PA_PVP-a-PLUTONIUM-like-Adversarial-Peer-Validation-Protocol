@@ -413,6 +413,14 @@ When changing it:
 
 ---
 
+## 🤖 AI-assisted development
+
+This project was developed with AI assistance.
+
+The project, documentation, and repository materials were shaped through human-directed work supported by AI tools during drafting, structuring, review, and refinement.
+
+AI assistance does not make the project automatically correct, complete, or suitable for every use case. Read it, test it, and adapt it to your own context.
+
 ## 📜 License
 
 Unless otherwise noted, this repository is licensed under:
